@@ -1,0 +1,159 @@
+# Le protocole RIP (Routing Information Protocol)
+
+## Qu'est-ce que RIP ?
+
+RIP est un **protocole de routage dynamique à vecteur de distance**. Au lieu de configurer manuellement toutes les routes sur chaque routeur, RIP permet aux routeurs de partager automatiquement leurs tables de routage entre eux. C'est l'un des protocoles de routage les plus anciens et les plus simples.
+
+### Principe de fonctionnement
+
+RIP utilise le **nombre de sauts (hops)** comme métrique. Chaque routeur traversé = 1 saut. Le chemin avec le moins de sauts est considéré comme le meilleur, même si ce n'est pas forcément le plus rapide en termes de bande passante.
+
+## RIP v1 vs RIP v2
+
+### RIP version 1 (obsolète)
+- **Classful** : ne supporte pas les masques de sous-réseau (VLSM)
+- Pas d'authentification
+- Broadcasts sur 255.255.255.255
+- Ne transmet pas le masque de sous-réseau dans les mises à jour
+
+### RIP version 2 (amélioré)
+- **Classless** : supporte VLSM et CIDR
+- Authentification possible (texte clair ou MD5)
+- Multicast sur **224.0.0.9** (plus efficace que broadcast)
+- Inclut le masque de sous-réseau dans les mises à jour
+- Supporte le résumé de routes manuel
+
+## Caractéristiques techniques de RIP
+
+### Métriques et limitations
+- **Métrique** : nombre de sauts uniquement
+- **Maximum de sauts** : 15 (16 = infini/inaccessible)
+- **Mises à jour** : toutes les 30 secondes
+- **Protocole de transport** : UDP port 520
+- **Distance administrative** : 120
+
+### Timers RIP
+- **Update timer** : 30 secondes (envoi des mises à jour)
+- **Invalid timer** : 180 secondes (route marquée comme invalide)
+- **Hold-down timer** : 180 secondes (période d'attente avant d'accepter de nouvelles routes)
+- **Flush timer** : 240 secondes (suppression de la route)
+
+## Configuration RIP v2 sur Cisco
+
+### Configuration basique
+
+```
+Router(config)# router rip
+Router(config-router)# version 2
+Router(config-router)# network 192.168.1.0
+Router(config-router)# network 10.0.0.0
+Router(config-router)# no auto-summary
+```
+
+**Explications** :
+- `router rip` : active le processus RIP
+- `version 2` : force l'utilisation de RIPv2
+- `network` : spécifie les réseaux à annoncer (classful, sans masque)
+- `no auto-summary` : désactive le résumé automatique (recommandé pour RIPv2)
+
+### Configuration avancée
+
+```
+Router(config)# router rip
+Router(config-router)# version 2
+Router(config-router)# network 192.168.1.0
+Router(config-router)# no auto-summary
+Router(config-router)# passive-interface GigabitEthernet0/0
+Router(config-router)# default-information originate
+```
+
+**Options utiles** :
+- `passive-interface` : empêche l'envoi de mises à jour RIP sur cette interface (utile pour les réseaux avec des utilisateurs finaux)
+- `default-information originate` : propage une route par défaut
+- `redistribute static` : redistribue les routes statiques dans RIP
+
+### Authentification MD5 (sécurisé)
+
+Sur l'interface :
+```
+Router(config)# interface GigabitEthernet0/1
+Router(config-if)# ip rip authentication mode md5
+Router(config-if)# ip rip authentication key-chain MA_CHAINE
+```
+
+Configuration de la key-chain :
+```
+Router(config)# key chain MA_CHAINE
+Router(config-keychain)# key 1
+Router(config-keychain-key)# key-string MonMotDePasse123
+```
+
+## Format des paquets RIP v2
+
+### Structure d'un message RIP v2 (en bits)
+
+```
+0                   1                   2                   3
+0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|  Command (8)  |  Version (8)  |       Must Be Zero (16)       |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|     Address Family ID (16)    |       Route Tag (16)          |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                       IP Address (32)                         |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                       Subnet Mask (32)                        |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                       Next Hop (32)                           |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                       Metric (32)                             |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+```
+
+### Détails des champs
+
+- **Command** (8 bits) : 1 = request, 2 = response
+- **Version** (8 bits) : 2 pour RIPv2
+- **Address Family ID** (16 bits) : 2 pour IP
+- **Route Tag** (16 bits) : pour les routes externes (redistribution)
+- **IP Address** (32 bits) : adresse réseau annoncée
+- **Subnet Mask** (32 bits) : masque de sous-réseau (nouveau dans v2)
+- **Next Hop** (32 bits) : prochain saut (0.0.0.0 si émetteur du message)
+- **Metric** (32 bits) : nombre de sauts (1-16)
+
+Chaque paquet peut contenir jusqu'à **25 routes**.
+
+## Commandes de vérification
+
+```
+Router# show ip route
+Router# show ip route rip
+Router# show ip protocols
+Router# show ip rip database
+Router# debug ip rip
+Router# debug ip rip events
+```
+
+## Avantages et inconvénients
+
+### Avantages
+- Très simple à configurer
+- Faible consommation CPU
+- Standardisé (RFC 2453)
+- Convient aux petits réseaux
+
+### Inconvénients
+- Limité à 15 sauts (petits réseaux uniquement)
+- Convergence lente (plusieurs minutes)
+- Métrique simpliste (pas de prise en compte de la bande passante)
+- Mises à jour complètes toutes les 30 secondes (consomme de la bande passante)
+- Pas adapté aux grands réseaux
+
+## Quand utiliser RIP v2 ?
+
+RIP v2 convient pour :
+- Petits réseaux (< 15 routeurs)
+- Environnements d'apprentissage
+- Réseaux simples sans besoins de performances élevées
+
+Pour les réseaux plus complexes, préférez OSPF ou EIGRP.
