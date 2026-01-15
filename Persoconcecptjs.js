@@ -1,0 +1,124 @@
+
+    const projects = [
+      {id:1, title:"TP1", tags:["TP"], short:"TP1", image:"photofunky.gif", details:"Détails du projet 1 : stack, défis, résultats." ,src:"test/testTp1.html",href:"test/testTp1.html"},
+      {id:2, title:"TP2", tags:["TP"], short:"TP2", image:"photofunky.gif", details:"Détails du projet 2 : perf, SEO.", src:"Tp2.html",href:"Tp2.html"},
+      {id:3, title:"TP3", tags:["TP"], short:"formulaire", image:"photofunky.gif", details:"Détails du projet 3 : brand book, livrables.", src:"Formulaire/formulaireTp3.html",href:"Formulaire/formulaireTp3.html"},
+      {id:4, title:"TP4", tags:["TP"], short:"Liste", image:"photofunky.gif", details:"Détails du projet 4 : UX/UI, backend.", src:"liste d'ordinateurTP4.html",href:"liste d'ordinateurTP4.html"},
+      {id:5, title:"TP5", tags:["TP"], short:"1st css", image:"photofunky.gif", details:"Détails du projet 5 : contenu, SEO.", src:"style.css/styleTP5.html",href:"style.css/styleTP5.html"},
+      {id:6, title:"TP6", tags:["TP"], short:"2nd css", image:"photofunky.gif", details:"Détails du projet 6 : data viz, interactivité.", src:"column.html",href:"column.html"},
+      {id:7, title:"mission", tags:["mission"], short:"Formulaire mission", image:"photofunky.gif", details:"Détails du projet 6 : data viz, interactivité.", src:"Formulaire/Formulaired'inscriptionTP6.html",href:"Formulaire/Formulaired'inscriptionTP6.html"},
+      {id:8, title:"TP8", tags:["Vue.js","D3.js,","TP"], short:"Formulaire", image:"photofunky.gif", details:"Détails du projet 6 : data viz, interactivité.", src:"Formulaire/formulairesolo.html",href:"Formulaire/formulairesolo.html"},
+      {id:11, title:"TP9", tags:["TP","Calculatrice.js"], short:"Calculatrice.js", image:"photofunky.gif", details:"Détails du projet 6 : data viz, interactivité.", src:"calculatrice TP9/train.html",href:"calculatrice TP9/train.html"},
+      {id:9, title:"TP10", tags:["TP"], short:"logiciel de virtualisation", image:"photofunky.gif", details:"Détails du projet 6 : data viz, interactivité.", src:"logiciel de virtualisation TP10/Logiciel de virtualisation-3.pdf",href:"logiciel de virtualisation TP10/Logiciel de virtualisation-3.pdf"},
+    {id:10, title:"TP11", tags:["TP"], short:"Début", image:"photofunky.gif", details:"Détails du projet 6 : data viz, interactivité.", src:"TP12/tp11.html",href:"TP12/tp11.html"},
+    {id:11, title:"TP12", tags:["TP"], short:"Début", image:"photofunky.gif", details:"Détails du projet 6 : data viz, interactivité.", src:"TP12/TP12LARVEULEUSE.html",href:"TP12/TP12LARVEULEUSE.html"},
+    {id:12, title:"Projet_Test", tags:["TP","Projet_perso,Personnelle"], short:"projet_personnelle", image:"inspiration-gif-design-3.gif", details:"Inspiration & conspiration", src:"Projet1.html",href:"Projet1.html"},
+    {id:13, title:"mission", tags:["mission"], short:"Certification", image:"Capture d'écran 2025-11-05 001508.png", details:"Détails du projet 6 : data viz, interactivité.",src:"Capture d'écran 2025-11-05 001508.png"},
+    {id:14, title:"TP13", tags:["TP"], short:"AMPS", image:"Amps/Capture d'écran 2025-11-18 114517.png", details:"Détails du projet 6 : data viz, interactivité.",src:"Amps/Capture d'écran 2025-11-18 114517.png"},
+     {id:15, title:"TP14", tags:["TP"], short:"AMPS", image:"Amps/Capture d'écran 2025-11-18 114452.png", details:"Détails du projet 6 : data viz, interactivité.",src:"Amps/Capture d'écran 2025-11-18 114452.png"},
+     {id:16, title:"mission_8", tags:["mission","module"], short:"L'atelier_RGPD", image:"Certifica/module1.png", details:"Détails du projet 6 : data viz, interactivité.",src:"Certifica/Certificat_module1.pdf"},
+     {id:17, title:"mission_8", tags:["mission","module"], short:"L'atelier_RGPD", image:"Certifica/module2.png", details:"Détails du projet 6 : data viz, interactivité.",src:"Certifica/Attestation_de_suivi_module2.pdf"},
+     {id:18, title:"mission_8", tags:["mission","module"], short:"L'atelier_RGPD", image:"Certifica/module3.png", details:"Détails du projet 6 : data viz, interactivité.",src:"Certifica/Certificat_module3.pdf"},
+     {id:19, title:"mission_8", tags:["mission","module"], short:"L'atelier_RGPD", image:"Certifica/module4.png", details:"Détails du projet 6 : data viz, interactivité.",src:"Certifica/Certificat_module4.pdf"},
+    {id:20, title:"mission_8", tags:["mission","module"], short:"L'atelier_RGPD", image:"Certifica/module5.png", details:"Détails du projet 6 : data viz, interactivité.",src:"Certifica/Certificat_module5.pdf"},
+    {id:21, title:"mission_8", tags:["mission","module"], short:"L'atelier_RGPD", image:"Certifica/module6.png", details:"Détails du projet 6 : data viz, interactivité.",src:"Certifica/Déclaration accessibilité module 6 CNIL_VF.pdf"},
+    {id:22, title:"mission_8", tags:["mission","module"], short:"L'atelier_RGPD", image:"Certifica/module6.png", details:"Détails du projet 6 : data viz, interactivité.",src:"Certifica/Attestation_de_suivi_module6.pdf"},
+    {id:23, title:"Cisco 3 routeurs", tags:["Cisco"], short:"Cisco", image:"f4a3a950e1cd8ab6ece9a60ba624a5c8.gif", details:"Projet cisco",src:"cisco.lamoula/CISCO 3 SERVEUR.pkt"},
+    {id:24, title:"Cisco switch config", tags:["Cisco"], short:"Cisco", image:"f4a3a950e1cd8ab6ece9a60ba624a5c8.gif", details:"Projet cisco",src:"cisco.lamoula/ok.pkt"},
+
+    ];
+
+
+
+    const navBar = document.getElementById('topNav');
+    const tagsContainer = document.getElementById('tags');
+    const projectsContainer = document.getElementById('projects');
+    const searchInput = document.getElementById('search');
+    const modal = document.getElementById('modal');
+    const modalLink = document.getElementById('modal-link');
+    const year = document.getElementById('year');
+    
+
+    let activeTag = 'Tous';
+
+    const tags = ['Tous', ...new Set(projects.flatMap(p => p.tags))];
+
+    function renderTags() {
+      tagsContainer.innerHTML = '';
+      tags.forEach(tag => {
+        const btn = document.createElement('button');
+        btn.textContent = tag;
+        if (tag === activeTag) btn.classList.add('active');
+        btn.onclick = () => { activeTag = tag; renderTags(); renderProjects(); };
+        tagsContainer.appendChild(btn);
+      });
+    }
+
+    function renderProjects() {
+      const query = searchInput.value.toLowerCase();
+      projectsContainer.innerHTML = '';
+      const filtered = projects.filter(p => {
+        const matchesTag = activeTag === 'Tous' || p.tags.includes(activeTag);
+        const matchesQuery = (p.title + p.short + p.tags.join(' ')).toLowerCase().includes(query);
+        return matchesTag && matchesQuery;
+      });
+      if (filtered.length === 0) {
+        projectsContainer.innerHTML = '<p>Aucun projet trouvé.</p>';
+      } else {
+        filtered.forEach(p => {
+          const card = document.createElement('div');
+          card.className = 'card';
+          card.innerHTML = `<img src="${p.image}" alt="${p.title}"><div class="content"><h3>${p.title}</h3><p>${p.short}</p></div>`;
+          card.onclick = () => openModal(p);
+          projectsContainer.appendChild(card);
+        });
+      }
+    } 
+function openModal(project) {
+  document.getElementById('modal-title').textContent = project.title;
+  document.getElementById('modal-tags').textContent = project.tags.join(' • ');
+  document.getElementById('modal-img').src = project.image;
+  document.getElementById('modal-img').alt = project.title;
+  document.getElementById('modal-details').textContent = project.details;
+  document.getElementById('modal-link').href = project.src;
+  modal.classList.add('active'); // Affiche la modale
+}
+
+
+
+// Ajouter un écouteur d'événement pour fermer le menu en cliquant à l'extérieur
+document.addEventListener('click', function(event) {
+    const navbar = document.getElementById('topNav');
+    const navbarToggler = document.querySelector('.navbar-toggler');
+    
+    if (!navbar.contains(event.target) && !navbarToggler.contains(event.target)) {
+        closeNavbar();
+    }
+});
+function closeModal() {
+  modal.classList.remove('active'); // Cache la modale proprement
+}
+
+// Fonction pour ouvrir le menu hamburger
+function openNavbar() {
+    const navbarToggler = document.querySelector('.navbar-toggler');
+    const navbarMenu = document.getElementById('Menu');
+    navbarToggler.click(); // Simule un clic pour ouvrir le menu
+}
+
+// Fonction pour fermer le menu hamburger
+function closeNavbar() {
+    const navbarToggler = document.querySelector('.navbar-toggler');
+    const navbarMenu = document.getElementById('Menu');
+    
+    if (navbarMenu.classList.contains('show')) {
+        navbarToggler.click(); // Simule un clic pour fermer le menu
+    }
+}
+
+    searchInput.addEventListener('input', renderProjects);
+    year.textContent = new Date().getFullYear();
+
+    renderTags();
+    renderProjects();
+  
