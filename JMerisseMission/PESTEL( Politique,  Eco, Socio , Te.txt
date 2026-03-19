@@ -1,0 +1,38 @@
+	PESTEL( Politique,  Eco, Socio , Techno, Environnement, Légal)Tableau Opportunité et Menace 
+possibilité d'avoir des cases vides
+
+Lire le document de A à Z
+Politque de A à Z
+
+Je vais vous expliquer l'analyse PESTEL du macro-environnement et sa distinction avec le micro-environnement.
+
+## L'analyse PESTEL (Macro-environnement)
+
+PESTEL est un outil d'analyse stratégique qui examine les facteurs externes influençant une organisation. Voici ses composantes :
+
+**P - Politique** : Stabilité gouvernementale, politiques fiscales, réglementations commerciales, relations internationales, politiques de subventions.
+
+**E - Économique** : Croissance économique, taux d'intérêt, inflation, taux de change, pouvoir d'achat, chômage, cycles économiques.
+
+**S - Socioculturel** : Démographie, styles de vie, valeurs culturelles, niveau d'éducation, attitude face au travail, tendances de consommation.
+
+**T - Technologique** : Innovation, R&D, automatisation, taux d'obsolescence, infrastructure technologique, brevets.
+
+**E - Écologique/Environnemental** : Changement climatique, réglementations environnementales, gestion des déchets, énergies renouvelables, empreinte carbone.
+
+**L - Légal** : Droit du travail, normes de sécurité, protection des consommateurs, propriété intellectuelle, législation sectorielle.
+
+## Le Micro-environnement
+
+Le micro-environnement concerne les acteurs proches de l'entreprise qui influencent directement sa capacité à servir ses clients :
+
+- **Clients** : Segments de marché, besoins et comportements
+- **Fournisseurs** : Pouvoir de négociation, fiabilité
+- **Concurrents** : Directs et indirects, intensité concurrentielle
+- **Distributeurs/Intermédiaires** : Canaux de distribution
+- **Prescripteurs** : Influenceurs, leaders d'opinion
+- **Parties prenantes** : Actionnaires, employés, communautés locales
+
+La principale différence est que le macro-environnement représente des forces sur lesquelles l'entreprise n'a quasiment aucun contrôle, tandis que le micro-environnement peut être davantage influencé par les décisions stratégiques de l'entreprise.
+
+Souhaitez-vous que j'approfondisse un aspect particulier ou que je vous montre comment appliquer ces analyses à un secteur spécifique ?

@@ -1,0 +1,46 @@
+SLAM
+
+data
+
+
+host:if0_40948124
+
+
+user: sql309.infinityfree.com
+
+
+password:if0_40948124_XXX 
+
+
+database: 4xrzafYoUXSQ3D
+
+
+username:
+
+
+MySQL Hostname
+
+sql309.infinityfree.com
+
+
+
+
+4xrzafYoUXSQ3D
+
+
+
+exe 
+
+$host = "sql100.infinityfree.com";
+$user = "if0_40893864";
+$password = "ahuCT2IDex";
+$database = "if0_40893864_biblio";
+
+
+c bon 
+
+
+$host = "sql309.infinityfree.com";
+$user = "if0_40948124";
+$password = "4xrzafYoUXSQ3D";
+$database = "if0_40948124_centre_de_formations";

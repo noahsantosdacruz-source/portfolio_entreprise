@@ -1,0 +1,106 @@
+-- ----------------------------------------------------------
+-- Script MYSQL pour mcd 
+-- ----------------------------------------------------------
+
+
+-- ----------------------------
+-- Table: BASSIN
+-- ----------------------------
+CREATE TABLE BASSIN (
+  id_bassin INT NOT NULL,
+  volume VARCHAR(50) NOT NULL,
+  CONSTRAINT BASSIN_PK PRIMARY KEY (id_bassin)
+)ENGINE=InnoDB;
+
+
+-- ----------------------------
+-- Table: piece
+-- ----------------------------
+CREATE TABLE piece (
+  id_bassin INT NOT NULL,
+  id_piece INT NOT NULL,
+  nom_place VARCHAR(50) NOT NULL,
+  volume VARCHAR(50) NOT NULL,
+  CONSTRAINT piece_PK PRIMARY KEY (id_bassin, id_piece),
+  CONSTRAINT piece_id_bassin_FK FOREIGN KEY (id_bassin) REFERENCES BASSIN (id_bassin)
+)ENGINE=InnoDB;
+
+
+-- ----------------------------
+-- Table: animal
+-- ----------------------------
+CREATE TABLE animal (
+  id_bassin INT NOT NULL,
+  id_animal INT NOT NULL,
+  date_arrive VARCHAR(50) NOT NULL,
+  nom VARCHAR(50) NOT NULL,
+  volume VARCHAR(50) NOT NULL,
+  CONSTRAINT animal_PK PRIMARY KEY (id_bassin, id_animal),
+  CONSTRAINT animal_id_bassin_FK FOREIGN KEY (id_bassin) REFERENCES BASSIN (id_bassin)
+)ENGINE=InnoDB;
+
+
+-- ----------------------------
+-- Table: soin
+-- ----------------------------
+CREATE TABLE soin (
+  id_bassin INT NOT NULL,
+  id_animal INT NOT NULL,
+  id_soin INT NOT NULL,
+  date_soin DATE NOT NULL,
+  nature_soin DATE NOT NULL,
+  volume VARCHAR(50) NOT NULL,
+  date_arrive VARCHAR(50) NOT NULL,
+  nom VARCHAR(50) NOT NULL,
+  CONSTRAINT soin_PK PRIMARY KEY (id_bassin, id_animal, id_soin),
+  CONSTRAINT soin_id_bassin_id_animal_FK FOREIGN KEY (id_bassin, id_animal) REFERENCES animal (id_bassin, id_animal)
+)ENGINE=InnoDB;
+
+
+-- ----------------------------
+-- Table: espece
+-- ----------------------------
+CREATE TABLE espece (
+  id_bassin INT NOT NULL,
+  id_animal INT NOT NULL,
+  id_espece INT NOT NULL,
+  libelle VARCHAR(50) NOT NULL,
+  volume VARCHAR(50) NOT NULL,
+  date_arrive VARCHAR(50) NOT NULL,
+  nom VARCHAR(50) NOT NULL,
+  CONSTRAINT espece_PK PRIMARY KEY (id_bassin, id_animal),
+  CONSTRAINT espece_id_bassin_id_animal_FK FOREIGN KEY (id_bassin, id_animal) REFERENCES animal (id_bassin, id_animal)
+)ENGINE=InnoDB;
+
+
+-- ----------------------------
+-- Table: ordre
+-- ----------------------------
+CREATE TABLE ordre (
+  id_bassin INT NOT NULL,
+  id_animal INT NOT NULL,
+  id_genre INT NOT NULL,
+  id_animal_famille INT NOT NULL,
+  id_ordre INT NOT NULL,
+  libelle VARCHAR(50) NOT NULL,
+  volume VARCHAR(50) NOT NULL,
+  date_arrive VARCHAR(50) NOT NULL,
+  nom VARCHAR(50) NOT NULL,
+  id_espece INT NOT NULL,
+  libelle_famille VARCHAR(50) NOT NULL,
+  libelle_famille_1 VARCHAR(50) NOT NULL,
+  date_arrive_famille DATE NOT NULL,
+  nom_famille VARCHAR(50) NOT NULL,
+  CONSTRAINT ordre_PK PRIMARY KEY (id_bassin, id_animal, id_genre, id_animal_famille, id_ordre)
+)ENGINE=InnoDB;
+
+
+-- ----------------------------
+-- Table: genre
+-- ----------------------------
+
+/******************************************************************************************************
+*                                                                                                     *
+*      -->    Désolé, il faut activer cette version pour voir la suite du script !                    *
+*                                                                                                     *
+*******************************************************************************************************/

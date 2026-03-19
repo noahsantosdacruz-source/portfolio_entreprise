@@ -1,0 +1,52 @@
+Question CEJM
+
+---
+
+## MISSION 1 : L'entreprise GEMDOUBS et son environnement
+
+---
+
+### Question 1.1 – Les principales opportunités du macro-environnement de GEMDOUBS
+
+Pour analyser le macro-environnement, on mobilise le modèle **PESTEL** (Politique, Économique, Sociologique, Technologique, Écologique, Légal).
+
+**Opportunités écologiques et sociologiques**
+La prise de conscience environnementale croissante des consommateurs constitue une opportunité majeure : selon l'annexe 4, l'environnement est la deuxième préoccupation des Français et 79 % se considèrent éco-responsables. La demande pour des emballages recyclables et durables est donc en forte croissance. De plus, le boom du e-commerce génère une demande accrue en carton d'emballage.
+
+**Opportunités légales**
+La loi AGEC de 2020 (annexe 6) oblige les acteurs économiques à sortir du plastique à usage unique, à lutter contre le gaspillage et à favoriser le réemploi. Cette réglementation pousse les entreprises à substituer le plastique par le carton, ce qui représente un débouché direct et croissant pour GEMDOUBS.
+
+**Opportunités politiques et économiques**
+Le Plan de relance du gouvernement (annexe 3) prévoit 1,2 milliard d'euros pour la décarbonation de l'industrie, avec des aides à l'investissement accessibles aux entreprises industrielles souhaitant améliorer leur efficacité énergétique. GEMDOUBS peut ainsi bénéficier de subventions pour ses projets de transition énergétique (centrale biomasse notamment).
+
+---
+
+### Question 1.2 – Cohérence du modèle économique de GEMDOUBS avec ces opportunités
+
+GEMDOUBS a adopté un modèle d'**économie circulaire**, qui s'inscrit parfaitement en réponse aux opportunités identifiées.
+
+Face à la demande croissante de produits éco-responsables et à l'obligation légale de réduire le plastique, GEMDOUBS produit 100 % de son papier à partir de matières recyclées (papiers et cartons usagés) pour fabriquer du PPO destiné aux emballages. Ce positionnement répond directement à la loi AGEC et aux attentes des consommateurs.
+
+Face aux opportunités de financement public liées à la décarbonation, GEMDOUBS a investi dans une centrale de cogénération biomasse alimentée en déchets forestiers locaux, lui permettant de réduire ses émissions de CO₂ (30 000 tonnes économisées selon l'annexe 7) et de maîtriser ses coûts énergétiques. Ce projet a pu bénéficier de financements publics et privés.
+
+Enfin, le boom du e-commerce, grand consommateur d'emballages carton, représente un marché en expansion que GEMDOUBS peut saisir grâce à la flexibilité de sa production. Le modèle circulaire de l'entreprise, récompensé par un trophée RSE en 2019, lui confère également un avantage concurrentiel différenciant.
+
+---
+
+### Question 1.3 – GEMDOUBS peut-elle rompre le contrat avec TRANSDOUBS ?
+
+**Raisonnement juridique :**
+
+**Les faits :** GEMDOUBS est liée par un contrat depuis cinq ans avec TRANSDOUBS pour la collecte et la livraison de papiers et cartons usagés. Depuis plusieurs semaines, TRANSDOUBS n'exécute plus totalement ses obligations en invoquant la hausse du prix du carburant. GEMDOUBS souhaite rompre le contrat.
+
+**Les règles de droit applicables (annexe 8) :**
+
+L'article 1103 du Code civil pose le principe de la force obligatoire du contrat : les contrats légalement formés tiennent lieu de loi entre les parties. En principe, un contrat ne peut être modifié ou rompu unilatéralement (article 1193).
+
+Cependant, deux mécanismes sont ici mobilisables :
+
+- **L'imprévision (article 1195)** : TRANSDOUBS pourrait invoquer un changement de circonstances imprévisible (hausse du carburant) rendant l'exécution excessivement onéreuse. Dans ce cas, elle peut demander une renégociation. Mais le mécanisme de l'imprévision ne dispense pas TRANSDOUBS de continuer à exécuter ses obligations durant la renégociation. Or, elle a cessé de remplir ses engagements sur certains sites — ce qui constitue une inexécution contractuelle.
+
+- **L'inexécution du contrat (articles 1217 et 1219)** : TRANSDOUBS n'exécute pas correctement ses obligations contractuelles (non-collecte sur certains sites). Cette inexécution est suffisamment grave car elle compromet l'approvisionnement en matières premières recyclées, indispensable à l'activité de GEMDOUBS. En vertu de l'article 1217, la partie victime de l'inexécution peut **provoquer la résolution du contrat** et demander réparation des préjudices subis.
+
+**Conclusion :** GEMDOUBS peut légitimement rompre le contrat avec TRANSDOUBS en se fondant sur l'inexécution grave et répétée de ses obligations contractuelles (article 1217). Elle peut également demander des dommages et intérêts pour le préjudice subi. Il est conseillé de passer par une procédure judiciaire ou, si les parties y consentent, de résoudre le contrat à l'amiable conformément à l'article 1195.

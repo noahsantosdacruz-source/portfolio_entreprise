@@ -1,0 +1,138 @@
+  body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #222;
+      background-color: #111;
+    }
+   
+    header h1 { margin: 0; }
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 2rem;
+    }
+    .search-bar {
+      display: flex;
+      gap: .5rem;
+      margin-bottom: 1rem;
+    }
+    .search-bar input {
+      flex: 1;
+      padding: .5rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+
+    }
+    .tags {
+      display: flex;
+      gap: .5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+    .tags button {
+      border: none;
+      background:silver;
+      padding: .3rem .8rem;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+    .tags button.active {
+      background: #4f46e5;
+      color: #fff;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+    }
+    .card {
+      background:silver;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 6px rgba(0,0,2,0.1);
+      cursor: pointer;
+      transition: transform .2s;
+    }
+    .card:hover { transform: translateY(-4px); }
+    .card img { width: 100%; height: 180px; object-fit: cover; }
+    .card .content { padding: 1rem; }
+    .card h3 { margin: 0; }
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity .3s;
+    }
+    .modal.active {
+      visibility: visible;
+      opacity: 1;
+      background-color: #111;
+    }
+    .modal-content {
+      background: silver;
+      border-radius: 10px;
+      max-width: 700px;
+      width: 90%;
+      padding: 1rem;
+      position: relative;
+    }
+    .modal-content img { width: 100%; border-radius: 8px; margin-bottom: 1rem; }
+    .modal-content button.close {
+      position: absolute;
+      top: .5rem;
+      right: .5rem;
+      border: none;
+      background: none;
+      font-size: 1.2rem;
+      cursor: pointer;
+      color: gold;
+    }
+    footer :hover { 
+      text-decoration: silver;
+      text-align: left;
+      color: goldenrod;
+
+    }
+    a { color: goldenrod; text-decoration: none; }
+    a:hover { 
+      color: white;
+      text-shadow: 0 0 5px black;
+
+    }
+
+    h1{ color: #111; 
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    #modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 999;
+}
+
+#modal.active {
+  display: flex;
+  opacity: 1;
+}
+
+h1 {
+    text-align: center;
+    font-size: 3em;
+    color: whitesmoke;
+    text-shadow: 2px 2px black;
+    text-decoration: solid;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}

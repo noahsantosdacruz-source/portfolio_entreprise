@@ -1,0 +1,106 @@
+-- ----------------------------------------------------------
+-- Script MYSQL pour mcd 
+-- ----------------------------------------------------------
+
+
+-- ----------------------------
+-- Table: Grades
+-- ----------------------------
+CREATE TABLE Grades (
+  grade INT NOT NULL,
+  nom VARCHAR(50) NOT NULL,
+  CONSTRAINT Grades_PK PRIMARY KEY (grade)
+)ENGINE=InnoDB;
+
+
+-- ----------------------------
+-- Table: Batailles
+-- ----------------------------
+CREATE TABLE Batailles (
+  batailles INT NOT NULL AUTO_INCREMENT,
+  lieu VARCHAR(150) NOT NULL,
+  debut BIGINT NOT NULL,
+  date VARCHAR(50) NOT NULL,
+  CONSTRAINT Batailles_PK PRIMARY KEY (batailles)
+)ENGINE=InnoDB;
+
+
+-- ----------------------------
+-- Table: Soldats
+-- ----------------------------
+CREATE TABLE Soldats (
+  code INT NOT NULL AUTO_INCREMENT,
+  nom VARCHAR(150) NOT NULL,
+  prenom VARCHAR(150) NOT NULL,
+  naissance VARCHAR(50) NOT NULL,
+  rue VARCHAR(150) NOT NULL,
+  cp VARCHAR(5) NOT NULL,
+  ville VARCHAR(75) NOT NULL,
+  CONSTRAINT Soldats_PK PRIMARY KEY (code)
+)ENGINE=InnoDB;
+
+
+-- ----------------------------
+-- Table: Unites
+-- ----------------------------
+CREATE TABLE Unites (
+  num INT NOT NULL,
+  nom VARCHAR(50) NOT NULL,
+  CONSTRAINT Unites_PK PRIMARY KEY (num)
+)ENGINE=InnoDB;
+
+
+-- ----------------------------
+-- Table: Client
+-- ----------------------------
+CREATE TABLE Client (
+  blessures INT NOT NULL,
+  prenom VARCHAR(150) NOT NULL,
+  CONSTRAINT Client_PK PRIMARY KEY (blessures)
+)ENGINE=InnoDB;
+
+
+-- ----------------------------
+-- Table: blesse
+-- ----------------------------
+CREATE TABLE blesse (
+  code INT NOT NULL,
+  batailles INT NOT NULL,
+  blessures INT NOT NULL,
+  blessure DATE NOT NULL,
+  CONSTRAINT blesse_PK PRIMARY KEY (code, batailles, blessures),
+  CONSTRAINT blesse_code_FK FOREIGN KEY (code) REFERENCES Soldats (code),
+  CONSTRAINT blesse_batailles_FK FOREIGN KEY (batailles) REFERENCES Batailles (batailles),
+  CONSTRAINT blesse_blessures_FK FOREIGN KEY (blessures) REFERENCES Client (blessures)
+)ENGINE=InnoDB;
+
+
+-- ----------------------------
+-- Table: promu
+-- ----------------------------
+CREATE TABLE promu (
+  code INT NOT NULL,
+  grade INT NOT NULL,
+  promotion DATE NOT NULL,
+  CONSTRAINT promu_PK PRIMARY KEY (code, grade),
+  CONSTRAINT promu_code_FK FOREIGN KEY (code) REFERENCES Soldats (code),
+  CONSTRAINT promu_grade_FK FOREIGN KEY (grade) REFERENCES Grades (grade)
+)ENGINE=InnoDB;
+
+
+-- ----------------------------
+-- Table: affecte
+-- ----------------------------
+CREATE TABLE affecte (
+  code INT NOT NULL,
+  num INT NOT NULL,
+  date DATE NOT NULL,
+  CONSTRAINT affecte_PK PRIMARY KEY (code, num),
+  CONSTRAINT affecte_code_FK FOREIGN KEY (code) REFERENCES Soldats (code)
+)ENGINE=InnoDB;
+
+/******************************************************************************************************
+*                                                                                                     *
+*      -->    Désolé, il faut activer cette version pour voir la suite du script !                    *
+*                                                                                                     *
+*******************************************************************************************************/

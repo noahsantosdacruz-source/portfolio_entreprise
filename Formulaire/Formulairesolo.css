@@ -1,0 +1,84 @@
+
+header {
+ font-family: Arial, Helvetica, sans-serif;
+color: white;
+margin: 0%;
+
+}
+
+
+body{
+background-image: url(noironduler.jpg);
+    text-align: center;
+    color: white;
+    font-size: large;
+    margin: 0px;
+
+
+
+}
+
+input [type="submit"]:hover {
+background-color: blue;
+color: mediumaquamarine;
+cursor: pointer;
+}
+
+h1{
+color: black;
+
+
+
+
+}
+img{
+border-radius: 20px;
+box-shadow: 2px 5px 3px 4px;
+}
+table{
+border-radius: 20px;
+box-shadow: 5px;
+text-align: center;
+
+}
+form{
+    background-color: whitesmoke;
+    width: 400px;
+    height: 500px;
+    margin: auto;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 15px 15px 5px ;
+    margin-top: 50px;
+}
+nav{
+ color:red;
+ text-align: center;
+ 
+
+}
+a{
+    text-decoration: none;
+    color: red;
+    border-radius: 20px;
+    background-color: silver;
+}
+footer{
+    text-align: center;
+    padding: 10px;
+    color: white;
+    background-color: #333;
+}
+li{
+
+color: white;
+}
+section{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: rgba(128, 128, 128, 0.5);
+}
