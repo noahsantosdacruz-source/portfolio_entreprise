@@ -1,0 +1,29 @@
+body {
+    background-color: gray;
+}
+h1
+{
+    text-align: center;
+    font-size: 3em;
+    color: white;
+    text-shadow: 2px 2px black;
+    text-decoration: solid;
+}
+button {
+    height: 200px;
+    width: 250px;
+    background-color: black;
+    color: white;
+    margin: 30px;
+    border: 2px solid white;
+    transition: 0.2s;
+    font-size: 2em;
+
+}
+button :hover {
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    border: 2px solid black;
+    transition: 150ms;
+}

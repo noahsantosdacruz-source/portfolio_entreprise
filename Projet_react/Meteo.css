@@ -1,0 +1,62 @@
+.App {
+  text-align: center;
+  padding: 50px;
+  background: linear-gradient(to bottom, #4facfe 0%, #00f2fe 100%);
+  min-height: 100vh;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  font-size: 3em;
+  margin-bottom: 30px;
+}
+
+.search-box {
+  margin: 30px 0;
+}
+
+.search-box input {
+  padding: 15px;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 25px 0 0 25px;
+  width: 300px;
+  outline: none;
+}
+
+.search-box button {
+  padding: 15px 30px;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 0 25px 25px 0;
+  background-color: #ff6b6b;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.search-box button:hover {
+  background-color: #ff5252;
+}
+
+.meteo-info {
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 30px;
+  border-radius: 20px;
+  margin: 30px auto;
+  max-width: 400px;
+  backdrop-filter: blur(10px);
+}
+
+.temperature {
+  font-size: 4em;
+  font-weight: bold;
+  margin: 20px 0;
+}
+
+.description {
+  font-size: 1.5em;
+  text-transform: capitalize;
+  margin-bottom: 20px;
+}
