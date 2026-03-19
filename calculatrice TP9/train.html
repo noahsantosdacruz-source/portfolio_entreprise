@@ -1,0 +1,30 @@
+<doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"  type="text/css" href="train.css">
+  <script src="train.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h1>TPS Calculatrice</h1>
+    <label>Nombre 1</label>
+    <input type="text" name="t1" id="t1" placeholder="saisir un nombre">
+    <label>Nombre 2</label>
+    <input type="text" name="t2" id="t2" placeholder="saisir un nombre">
+<br><br>
+            <button onclick="somme()">+</button>
+            <button onclick="soustraction()">-</button>
+            <button onclick="multiplication()">x</button>
+           <button onclick="division()">/</button><br>
+            <button onclick="parité()">parité</button>
+            <button onclick="permuter()">permuter</button>
+            <button onclick="reset()">reset</button>
+    <br><br>
+    <label>Résultat:  </label>
+    <input type="text" name="resultat" placeholder="résultat" id="resultat" readonly>
+    <label > parité</label>
+    <input type="text" name="pair" placeholder="pair ou impair" id="pair" readonly>
+</body>
+</html>

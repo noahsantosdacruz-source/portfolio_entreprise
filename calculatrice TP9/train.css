@@ -1,0 +1,46 @@
+body{
+background-color: black;
+font-family: Arial, sans-serif;
+text-align: center;
+margin: 0;
+padding: 20px;
+}
+input{
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 10px;
+    font-size: 1.2em;
+    border: 1px solid #e3e5c8;
+    border-radius: 8px;
+    background-color: #ffffff;
+color: #2d14cd;
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+button{
+    background-color: smokewhite;
+    color: black;
+    border: none;
+    border-radius: 15px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+button:hover{
+    background-color: silver;
+}
+button:active{
+    background-color: goldenrod;
+}
+h1{
+    color: white;
+    background-color: gold;
+
+}
+label{
+    color: white;
+    font-size: 1.2em;
+}
+table{
+    align-content: center;
+    flex-wrap: wrap;
+}

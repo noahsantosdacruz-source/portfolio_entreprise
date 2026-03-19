@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guide Mathématiques</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/umd/lucide.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(to bottom right, #000000, #450a0a, #000000);
+            color: white;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-top: 4rem;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            background: linear-gradient(to right, #ef4444, #7f1d1d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+
+        .header p {
+            color: #cbd5e1;
+            font-size: 1.125rem;
+        }
+
+        /* Buttons */
+        .btn {
+            background: #dc2626;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+
+        .btn:hover {
+            background: #b91c1c;
+            transform: scale(1.05);
+        }
+
+        .fixed-btn {
+            position: fixed;
+            z-index: 50;
+        }
+
+        .menu-btn {
+            top: 1.5rem;
+            left: 1.5rem;
+        }
+
+        .resources-btn {
+            top: 1.5rem;
+            right: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Carousel */
+        .carousel {
+            background: rgba(30, 41, 59, 0.5);
+            backdrop-filter: blur(10px);
+            border-radius: 1rem;
+            overflow: hidden;
+            border: 1px solid #475569;
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.5);
+            margin-bottom: 4rem;
+        }
+
+        .carousel-header {
+            background: linear-gradient(to right, rgba(0,0,0,0.8), rgba(127,29,29,0.5));
+            padding: 3rem;
+            position: relative;
+            text-align: center;
+        }
+
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #dc2626;
+            border: none;
+            color: white;
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .carousel-nav:hover {
+            background: #b91c1c;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .carousel-nav.prev {
+            left: 1rem;
+        }
+
+        .carousel-nav.next {
+            right: 1rem;
+        }
+
+        .formula {
+            font-size: 3rem;
+            color: #f87171;
+            font-family: 'Courier New', monospace;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        .category {
+            color: #cbd5e1;
+            font-size: 1.25rem;
+        }
+
+        .indicators {
+            position: absolute;
+            bottom: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .indicator {
+            width: 0.5rem;
+            height: 0.5rem;
+            border-radius: 9999px;
+            background: #475569;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .indicator.active {
+            background: #ef4444;
+            width: 2rem;
+        }
+
+        /* Content */
+        .content {
+            padding: 2rem;
+        }
+
+        .content-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .content h2 {
+            font-size: 2rem;
+            color: #ef4444;
+        }
+
+        .difficulty-badge {
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .difficulty-beginner {
+            background: rgba(34, 197, 94, 0.2);
+            color: #4ade80;
+        }
+
+        .difficulty-intermediate {
+            background: rgba(234, 179, 8, 0.2);
+            color: #facc15;
+        }
+
+        .difficulty-advanced {
+            background: rgba(239, 68, 68, 0.2);
+            color: #f87171;
+        }
+
+        .description {
+            font-size: 1.125rem;
+            color: #cbd5e1;
+            line-height: 1.75;
+            margin-bottom: 1.5rem;
+        }
+
+        .visualization {
+            background: rgba(15, 23, 42, 0.7);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            border: 1px solid #475569;
+            margin-bottom: 1.5rem;
+        }
+
+        .visualization h3 {
+            color: #f87171;
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+        }
+
+        .visualization pre {
+            color: #fca5a5;
+            font-family: 'Courier New', monospace;
+            font-size: 0.875rem;
+            overflow-x: auto;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: rgba(15, 23, 42, 0.5);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            border: 1px solid #475569;
+        }
+
+        .card h3 {
+            color: #f87171;
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+        }
+
+        .card ul {
+            list-style: none;
+        }
+
+        .card li {
+            color: #cbd5e1;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: start;
+            gap: 0.5rem;
+        }
+
+        .card li::before {
+            content: "•";
+            color: #ef4444;
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+
+        .card.examples li {
+            font-family: 'Courier New', monospace;
+            font-size: 0.875rem;
+        }
+
+        /* Principles */
+        .principles {
+            margin-top: 4rem;
+        }
+
+        .principles h2 {
+            text-align: center;
+            font-size: 2rem;
+            background: linear-gradient(to right, #c084fc, #22d3ee);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 2rem;
+        }
+
+        .principles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .principle-card {
+            background: rgba(30, 41, 59, 0.5);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            border: 1px solid #475569;
+            transition: all 0.3s;
+        }
+
+        .principle-card:hover {
+            border-color: #22d3ee;
+            transform: scale(1.05);
+        }
+
+        .principle-card .icon {
+            color: #22d3ee;
+            margin-bottom: 1rem;
+        }
+
+        .principle-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .principle-card p {
+            color: #cbd5e1;
+        }
+
+        .footer-tips {
+            background: linear-gradient(to right, rgba(34, 211, 238, 0.1), rgba(192, 132, 252, 0.1));
+            border: 1px solid rgba(34, 211, 238, 0.2);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+        }
+
+        .footer-tips h3 {
+            color: #22d3ee;
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-tips p {
+            color: #cbd5e1;
+            line-height: 1.75;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(5px);
+            z-index: 40;
+            padding: 1rem;
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: #0f172a;
+            border-radius: 1rem;
+            padding: 2rem;
+            max-width: 600px;
+            width: 100%;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-header h2 {
+            font-size: 1.875rem;
+            color: #ef4444;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            color: #94a3b8;
+            font-size: 2rem;
+            cursor: pointer;
+            line-height: 1;
+        }
+
+        .close-btn:hover {
+            color: white;
+        }
+
+        .menu-item {
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid #475569;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .menu-item:hover {
+            border-color: rgba(239, 68, 68, 0.5);
+            color: white;
+        }
+
+        .menu-item.active {
+            background: #dc2626;
+            border-color: #ef4444;
+            color: white;
+        }
+
+        .menu-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.25rem;
+        }
+
+        .menu-item-title {
+            font-weight: 600;
+        }
+
+        .menu-item-category {
+            font-size: 0.75rem;
+            color: #94a3b8;
+        }
+
+        .menu-item-formula {
+            font-size: 0.875rem;
+            color: #f87171;
+            font-family: 'Courier New', monospace;
+            margin-top: 0.5rem;
+        }
+
+        .resource-item {
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid #475569;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin-bottom: 0.75rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s;
+        }
+
+        .resource-item:hover {
+            border-color: rgba(239, 68, 68, 0.5);
+        }
+
+        .resource-info {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .resource-icon {
+            color: #ef4444;
+        }
+
+        .resource-name {
+            font-weight: 600;
+            color: white;
+        }
+
+        .resource-meta {
+            font-size: 0.875rem;
+            color: #94a3b8;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+
+            .header {
+                padding-top: 5rem;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .formula {
+                font-size: 1.5rem;
+            }
+
+            .carousel-header {
+                padding: 2rem 1rem;
+            }
+
+            .resources-btn span {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Menu Button -->
+    <button class="btn fixed-btn menu-btn" onclick="toggleMenu()">♠
+        <i data-lucide="menu" width="24" height="24"></i>
+    </button>
+
+    <!-- Resources Button -->
+    <button class="btn fixed-btn resources-btn" onclick="toggleResources()">♥
+        <i data-lucide="file-text" width="20" height="20"></i>
+        <span>Fichiers</span>
+    </button>
+
+    <!-- Menu Modal -->
+    <div id="menuModal" class="modal">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <h2>Chapitres</h2>
+                <button class="close-btn" onclick="toggleMenu()">×</button>
+            </div>
+            <div id="menuItems"></div>
+        </div>
+    </div>
+
+    <!-- Resources Modal -->
+    <div id="resourcesModal" class="modal">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <h2>Ressources Disponibles</h2>
+                <button class="close-btn" onclick="toggleResources()">×</button>
+            </div>
+            <div id="resourceItems"></div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1> Guide Mathématiques</h1>
+            <p>Découvrez les concepts mathématiques essentiels expliqués simplement</p>
+        </div>
+
+        <!-- Carousel -->
+        <div class="carousel">
+            <div class="carousel-header">
+                <i data-lucide="chevron-left" width="24" height="24"></i>
+                <button class="carousel-nav prev" onclick="prevSlide()"> ←
+                </button>
+                
+                <div id="carouselContent">
+                    <div class="formula"></div>
+                    <div class="category"></div>
+                </div>
+
+                <i data-lucide="chevron-right" width="24" height="24"></i>
+                <button class="carousel-nav next" onclick="nextSlide()"> →
+                </button>
+
+                <div class="indicators" id="indicators"></div>
+            </div>
+
+            <div class="content">
+                <div class="content-header">
+                    <h2 id="conceptName"></h2>
+                    <span id="difficultyBadge" class="difficulty-badge"></span>
+                </div>
+
+                <p class="description" id="description"></p>
+
+                <div class="visualization">
+                    <h3>Représentation</h3>
+                    <pre id="visualization"></pre>
+                </div>
+
+                <div class="grid">
+                    <div class="card">
+                        <h3>Applications</h3>
+                        <ul id="applications"></ul>
+                    </div>
+
+                    <div class="card examples">
+                        <h3 style="color: #ef4444;">Exemples</h3>
+                        <ul id="examples"></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Principles -->
+        <div class="principles">
+            <h2>Principes d'Apprentissage</h2>
+            <div class="principles-grid">
+                <div class="principle-card">
+                    <div class="icon">
+                        <i data-lucide="book-open" width="32" height="32"></i>
+                    </div>
+                    <h3>Comprendre avant Mémoriser</h3>
+                    <p>Cherchez à comprendre les concepts plutôt que d'apprendre par cœur. La compréhension facilite la mémorisation.</p>
+                </div>
+                <div class="principle-card">
+                    <div class="icon">
+                        <i data-lucide="lightbulb" width="32" height="32"></i>
+                    </div>
+                    <h3>Pratique Régulière</h3>
+                    <p>Résolvez des exercices quotidiennement. Les mathématiques s'apprennent en pratiquant, pas seulement en lisant.</p>
+                </div>
+                <div class="principle-card">
+                    <div class="icon">
+                        <i data-lucide="trending-up" width="32" height="32"></i>
+                    </div>
+                    <h3>Progression Graduelle</h3>
+                    <p>Commencez par les bases et progressez étape par étape. Chaque concept s'appuie sur les précédents.</p>
+                </div>
+            </div>
+
+            <div class="footer-tips">
+                <h3>Conseils pour Réussir</h3>
+                <p>Les mathématiques demandent de la patience et de la persévérance. Ne vous découragez pas face aux difficultés, 
+                elles font partie du processus d'apprentissage. Travaillez régulièrement, posez des questions et n'hésitez pas 
+                à revoir les concepts de base si nécessaire. Chaque problème résolu renforce votre compréhension et votre confiance.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const concepts = [
+            {
+                name: "Théorème de Pythagore",
+                formula: "a² + b² = c²",
+                category: "Géométrie",
+                difficulty: "Débutant",
+                description: "Dans un triangle rectangle, le carré de l'hypoténuse est égal à la somme des carrés des deux autres côtés.",
+                applications: ["Calcul de distances", "Architecture et construction", "Navigation et cartographie", "Résolution de problèmes géométriques"],
+                examples: ["Si a = 3 et b = 4, alors c = √(9 + 16) = 5", "Triangle rectangle avec côtés 5, 12, 13", "Calcul de la diagonale d'un rectangle", "Déterminer si un triangle est rectangle"],
+                visualization: `     Triangle Rectangle
+    
+        |\\
+      b |  \\ c (hypoténuse)
+        |    \\
+        |_____\\
+           a`
+            },
+            {
+                name: "Équations du Second Degré",
+                formula: "ax² + bx + c = 0",
+                category: "Algèbre",
+                difficulty: "Intermédiaire",
+                description: "Une équation polynomiale de degré 2. La solution utilise la formule quadratique ou le discriminant Δ = b² - 4ac.",
+                applications: ["Trajectoires paraboliques", "Optimisation de fonctions", "Modélisation de phénomènes physiques", "Calcul de maximums et minimums"],
+                examples: ["x² - 5x + 6 = 0 → solutions: x = 2 ou x = 3", "Formule: x = (-b ± √Δ) / 2a", "Si Δ > 0: deux solutions réelles", "Si Δ = 0: une solution double"],
+                visualization: `    📊 Parabole
+    
+        y
+        |    
+        |   /\\
+        |  /  \\
+        | /    \\
+        |/______\\___x`
+            },
+            {
+                name: "Dérivées",
+                formula: "f'(x) = lim(h→0) [f(x+h) - f(x)] / h",
+                category: "Analyse",
+                difficulty: "Avancé",
+                description: "La dérivée mesure le taux de variation instantané d'une fonction. Elle représente la pente de la tangente en un point.",
+                applications: ["Calcul de vitesses instantanées", "Optimisation de processus", "Étude de croissance/décroissance", "Résolution de problèmes physiques"],
+                examples: ["Si f(x) = x², alors f'(x) = 2x", "Si f(x) = sin(x), alors f'(x) = cos(x)", "Règle de la chaîne: (f∘g)' = f'(g) × g'", "Dérivée d'un produit: (uv)' = u'v + uv'"],
+                visualization: `     Tangente
+    
+        y
+        |     /
+        |    /  ← tangente
+        |   /___
+        |  /
+        |_/________x`
+            },
+            {
+                name: "Intégrales",
+                formula: "∫ f(x) dx",
+                category: "Analyse",
+                difficulty: "Avancé",
+                description: "L'intégrale calcule l'aire sous une courbe. C'est l'opération inverse de la dérivée.",
+                applications: ["Calcul d'aires et volumes", "Détermination de distances parcourues", "Probabilités continues", "Physique et ingénierie"],
+                examples: ["∫ x² dx = x³/3 + C", "∫ sin(x) dx = -cos(x) + C", "∫₀¹ x dx = [x²/2]₀¹ = 1/2", "Théorème fondamental: ∫ f'(x) dx = f(x) + C"],
+                visualization: `    📊 Aire sous courbe
+    
+        y
+        |    ╱╲
+        |   ╱  ╲
+        |  ╱____╲___
+        | ████████
+        |___________x`
+            },
+            {
+                name: "Trigonométrie",
+                formula: "sin²(θ) + cos²(θ) = 1",
+                category: "Géométrie",
+                difficulty: "Intermédiaire",
+                description: "Relations entre angles et longueurs dans les triangles. Fonctions périodiques essentielles.",
+                applications: ["Navigation et GPS", "Ondes et vibrations", "Architecture", "Astronomie"],
+                examples: ["sin(30°) = 1/2, cos(30°) = √3/2", "tan(θ) = sin(θ) / cos(θ)", "sin(A + B) = sin(A)cos(B) + cos(A)sin(B)", "Cercle trigonométrique: rayon = 1"],
+                visualization: `     Cercle Trigonométrique
+    
+          sin
+           |
+           |
+    ───────┼───────  cos
+           |
+           |`
+            },
+            {
+                name: "Matrices",
+                formula: "A × B = C",
+                category: "Algèbre Linéaire",
+                difficulty: "Avancé",
+                description: "Tableaux de nombres permettant de représenter des transformations linéaires et résoudre des systèmes.",
+                applications: ["Graphisme 3D et jeux vidéo", "Cryptographie", "Intelligence artificielle", "Systèmes d'équations"],
+                examples: ["Matrice identité: I = [[1,0],[0,1]]", "det(A) ≠ 0 → matrice inversible", "A⁻¹ × A = I", "Multiplication non commutative: AB ≠ BA"],
+                visualization: `    🔢 Matrice 2×2
+    
+        ┌     ┐
+        │ a b │
+        │ c d │
+        └     ┘`
+            },
+            {
+                name: "Probabilités",
+                formula: "P(A) = cas favorables / cas possibles",
+                category: "Statistiques",
+                difficulty: "Intermédiaire",
+                description: "Mesure du degré de certitude qu'un événement se produise. Valeur entre 0 et 1.",
+                applications: ["Jeux et paris", "Assurance et finance", "Prévisions météo", "Machine learning"],
+                examples: ["P(pile) = 1/2 pour une pièce équilibrée", "P(A ∪ B) = P(A) + P(B) - P(A ∩ B)", "P(A|B) = P(A ∩ B) / P(B)", "Événements indépendants: P(A ∩ B) = P(A) × P(B)"],
+                visualization: `     Dé à 6 faces
+    
+      P(6) = 1/6
+      
+      ┌─┬─┬─┐
+      │1│2│3│
+      ├─┼─┼─┤
+      │4│5│6│
+      └─┴─┴─┘`
+            },
+            {
+                name: "Suites Numériques",
+                formula: "uₙ₊₁ = f(uₙ)",
+                category: "Analyse",
+                difficulty: "Intermédiaire",
+                description: "Séquence de nombres suivant une règle. Peut être arithmétique, géométrique ou récurrente.",
+                applications: ["Modélisation de populations", "Calculs financiers (intérêts)", "Algorithmes", "Fractales"],
+                examples: ["Arithmétique: uₙ = u₀ + nr (ex: 2,4,6,8...)", "Géométrique: uₙ = u₀ × qⁿ (ex: 2,4,8,16...)", "Fibonacci: uₙ₊₁ = uₙ + uₙ₋₁", "Convergence: lim(n→∞) uₙ = L"],
+                visualization: `     Suite croissante
+    
+          •
+        •
+      •
+    •
+    ──────────→ n`
+            }
+        ];
+
+        const resources = [
+            { name: "Cours de Géométrie.pdf", size: "2.4 MB", category: "Géométrie" },
+            { name: "Exercices Algèbre.pdf", size: "1.8 MB", category: "Algèbre" },
+            { name: "Formules Essentielles.pdf", size: "950 KB", category: "Général" },
+            { name: "Analyse Mathématique.pdf", size: "3.2 MB", category: "Analyse" },
+            { name: "Problèmes Corrigés.pdf", size: "4.1 MB", category: "Exercices" },
+            { name: "Trigonométrie Avancée.pdf", size: "2.1 MB", category: "Géométrie" },
+            { name: "Matrices et Vecteurs.pdf", size: "2.8 MB", category: "Algèbre Linéaire" },
+            { name: "Statistiques et Probabilités.pdf", size: "3.5 MB", category: "Statistiques" },
+            { name: "Calcul Différentiel.pdf", size: "2.9 MB", category: "Analyse" },
+            { name: "Suites et Séries.pdf", size: "1.6 MB", category: "Analyse" },
+            { name: "Nombres Complexes.pdf", size: "1.4 MB", category: "Algèbre" },
+            { name: "Géométrie Analytique.pdf", size: "2.2 MB", category: "Géométrie" },
+            { name: "Équations Différentielles.pdf", size: "3.7 MB", category: "Analyse" },
+            { name: "Combinatoire.pdf", size: "1.9 MB", category: "Statistiques" },
+            { name: "Exercices Types Bac.pdf", size: "5.2 MB", category: "Exercices" }
+        ];
+
+        let currentSlide = 0;
+
+        function updateCarousel() {
+            const concept = concepts[currentSlide];
+            
+            document.querySelector('.formula').textContent = concept.formula;
+            document.querySelector('.category').textContent = concept.category;
+            document.getElementById('conceptName').textContent = concept.name;
+            document.getElementById('description').textContent = concept.description;
+            document.getElementById('visualization').textContent = concept.visualization;
+            
+            const badge = document.getElementById('difficultyBadge');
+            badge.textContent = concept.difficulty;
+            badge.className = 'difficulty-badge difficulty-' + 
+                (concept.difficulty === 'Débutant' ? 'beginner' : 
+                 concept.difficulty === 'Intermédiaire' ? 'intermediate' : 'advanced');
+            
+            const applicationsList = document.getElementById('applications');
+            applicationsList.innerHTML = concept.applications.map(app => `<li>${app}</li>`).join('');
+            
+            const examplesList = document.getElementById('examples');
+            examplesList.innerHTML = concept.examples.map(ex => `<li>${ex}</li>`).join('');
+            
+            updateIndicators();
+        }
+
+        function updateIndicators() {
+            const indicatorsContainer = document.getElementById('indicators');
+            indicatorsContainer.innerHTML = concepts.map((_, idx) => 
+                `<button class="indicator ${idx === currentSlide ? 'active' : ''}" onclick="goToSlide(${idx})"></button>`
+            ).join('');
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % concepts.length;
+            updateCarousel();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + concepts.length) % concepts.length;
+            updateCarousel();
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateCarousel();
+        }
+
+        function toggleMenu() {
+            const modal = document.getElementById('menuModal');
+            modal.classList.toggle('active');
+            if (modal.classList.contains('active')) {
+                renderMenu();
+            }
+        }
+
+        function toggleResources() {
+            const modal = document.getElementById('resourcesModal');
+            modal.classList.toggle('active');
+            if (modal.classList.contains('active')) {
+                renderResources();
+            }
+        }
+
+        function renderMenu() {
+            const menuItems = document.getElementById('menuItems');
+            menuItems.innerHTML = concepts.map((concept, idx) => `
+                <div class="menu-item ${idx === currentSlide ? 'active' : ''}" onclick="selectConcept(${idx})">
+                    <div class="menu-item-header">
+                        <span class="menu-item-title">${concept.name}</span>
+                        <span class="menu-item-category">${concept.category}</span>
+                    </div>
+                    <div class="menu-item-formula">${concept.formula}</div>
+                </div>
+            `).join('');
+        }
+
+        function renderResources() {
+            const resourceItems = document.getElementById('resourceItems');
+            resourceItems.innerHTML = resources.map(resource => `
+                <div class="resource-item">
+                    <div class="resource-info">
+                        <i class="resource-icon" data-lucide="file-text" width="20" height="20"></i>
+                        <div>
+                            <div class="resource-name">${resource.name}</div>
+                            <div class="resource-meta">${resource.category} • ${resource.size}</div>
+                        </div>
+                    </div>
+                    <i data-lucide="download" width="20" height="20" style="color: #94a3b8;"></i>
+                </div>
+            `).join('');
+            lucide.createIcons();
+        }
+
+        function selectConcept(index) {
+            currentSlide = index;
+            updateCarousel();
+            toggleMenu();
+        }
+
+        // Close modals when clicking outside
+        document.getElementById('menuModal').addEventListener('click', toggleMenu);
+        document.getElementById('resourcesModal').addEventListener('click', toggleResources);
+
+        // Initialize
+        updateCarousel();
+        lucide.createIcons();
+    </script>
+</body>
+</html>
