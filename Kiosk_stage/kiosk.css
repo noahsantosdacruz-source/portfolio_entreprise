@@ -444,6 +444,93 @@ main {
 }
 
 
+/* ── LINUX COMMANDS ── */
+.cmd-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(460px, 1fr));
+  gap: 16px;
+}
+
+.cmd-block {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.cmd-block:hover {
+  border-color: var(--teal-dim);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+}
+
+.cmd-block-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 18px;
+  background: var(--bg-card2);
+  border-bottom: 1px solid var(--border);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--teal);
+}
+
+.cmd-list {
+  padding: 8px 0;
+}
+
+.cmd-item {
+  padding: 10px 18px;
+  border-bottom: 1px solid rgba(30,58,95,0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.cmd-item:last-child { border-bottom: none; }
+
+.cmd-item code {
+  font-family: 'Courier New', monospace;
+  font-size: 12.5px;
+  color: #7DD3C8;
+  background: rgba(0,0,0,0.25);
+  padding: 5px 10px;
+  border-radius: 5px;
+  border-left: 2px solid var(--teal-dim);
+  word-break: break-all;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+  position: relative;
+}
+
+.cmd-item code:hover {
+  background: rgba(0,180,166,0.1);
+  border-color: var(--teal);
+}
+
+.cmd-item code::after {
+  content: '⎘';
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 11px;
+  color: var(--gray-dim);
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+.cmd-item code:hover::after { opacity: 1; }
+
+.cmd-desc {
+  font-size: 12px;
+  color: var(--gray);
+  padding-left: 4px;
+}
+
 /* ── FOOTER ── */
 footer {
   border-top: 1px solid var(--border);
@@ -478,6 +565,11 @@ footer {
   transition: opacity 0.18s;
 }
 .footer-link-inline:hover { opacity: 0.75; }
+
+.footer-text {
+  font-size: 12px;
+  color: #3A5A7A;
+}
 
 .footer-links {
   display: flex;
@@ -536,6 +628,7 @@ footer {
 
   .navbar { position: relative; }
 
+  .cmd-grid { grid-template-columns: 1fr; }
   .category-header { flex-direction: column; gap: 12px; }
   .cards { grid-template-columns: 1fr; }
   .card-footer { flex-direction: column; }

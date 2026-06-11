@@ -32,7 +32,7 @@
       {id:31, title:"Kiosk", tags:["Kiosk"], short:"Rapport de stage", image:"PHOTO/github.png", details:"Voici les document pour ma convention de stage", src:"Kiosk_stage/Kiosk_stage_fonctionnement.html"},
       {id:32, title:"Kiosk", tags:["Kiosk_Powerpoint"], short:"Powerpoint", image:"PHOTO/github.png", details:"Voici les document pour ma convention de stage", src:"Kiosk_stage/STAGE_OKEN_CONSULTING_final-6.pdf"},
       {id:33, title:"CV", tags:["CV"], short:"Profile", image:"Dossier_CV/Capture d'écran 2026-06-11 093532.png", details:"Voici mon CV", src:"Dossier_CV/Noah_Santosdacruz_CV_2.pdf"},
-
+      {id:34, title:"KIOSK", tags:["KIOSK"], short:"Listage des tâches", image:"PHOTO/github.png", details:"Voici mes passions", src:"Kiosk_stage/STAGE KIOSQUE.md"},
       
     ];
 

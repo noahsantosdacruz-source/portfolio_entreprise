@@ -26,6 +26,7 @@
         <li><a href="#cat2" class="nav-link">DevOps</a></li>
         <li><a href="#cat3" class="nav-link">Raspberry Pi</a></li>
         <li><a href="#cat4" class="nav-link">Kiosque</a></li>
+        <li><a href="#cat5" class="nav-link">Linux</a></li>
         <li>
           <a href="https://oken-consulting.com/" target="_blank" class="nav-link">Oken Consulting</a>
         </li>
@@ -312,6 +313,192 @@
       </div>
     </section>
 
+    <!-- CATÉGORIE 5 -->
+    <section class="category" id="cat5">
+      <div class="category-header">
+        <div class="cat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><polyline points="8 10 12 6 16 10"/><line x1="12" y1="6" x2="12" y2="18"/></svg>
+        </div>
+        <div>
+          <span class="cat-label">Catégorie 05</span>
+          <h2>Commandes Linux essentielles</h2>
+          <p class="cat-desc">Les lignes de commande à connaître pour configurer, sécuriser et piloter le kiosque.</p>
+        </div>
+      </div>
+
+      <div class="cmd-grid">
+
+        <!-- BLOC 1 -->
+        <div class="cmd-block">
+          <div class="cmd-block-header">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+            Installation des paquets
+          </div>
+          <div class="cmd-list">
+            <div class="cmd-item">
+              <code>sudo apt update && sudo apt upgrade -y</code>
+              <span class="cmd-desc">Met à jour la liste des paquets et installe les mises à jour</span>
+            </div>
+            <div class="cmd-item">
+              <code>sudo apt install --no-install-recommends xserver-xorg x11-xserver-utils xinit openbox chromium-browser</code>
+              <span class="cmd-desc">Installe le serveur d'affichage léger + Chromium pour le mode kiosque</span>
+            </div>
+            <div class="cmd-item">
+              <code>sudo apt install unclutter</code>
+              <span class="cmd-desc">Installe Unclutter pour cacher le curseur automatiquement</span>
+            </div>
+            <div class="cmd-item">
+              <code>sudo apt install docker.io</code>
+              <span class="cmd-desc">Installe Docker sur le Raspberry Pi</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- BLOC 2 -->
+        <div class="cmd-block">
+          <div class="cmd-block-header">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            Configuration du mode kiosque
+          </div>
+          <div class="cmd-list">
+            <div class="cmd-item">
+              <code>xset s off</code>
+              <span class="cmd-desc">Désactive l'économiseur d'écran</span>
+            </div>
+            <div class="cmd-item">
+              <code>xset s noblank</code>
+              <span class="cmd-desc">Empêche l'écran de s'éteindre</span>
+            </div>
+            <div class="cmd-item">
+              <code>xset -dpms</code>
+              <span class="cmd-desc">Désactive la gestion d'énergie de l'écran</span>
+            </div>
+            <div class="cmd-item">
+              <code>unclutter -idle 0.1 -root &</code>
+              <span class="cmd-desc">Cache le curseur après 0.1 seconde d'inactivité</span>
+            </div>
+            <div class="cmd-item">
+              <code>chromium-browser --noerrdialogs --disable-infobars --kiosk https://votre-url.com &</code>
+              <span class="cmd-desc">Lance Chromium en plein écran sur l'URL du kiosque</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- BLOC 3 -->
+        <div class="cmd-block">
+          <div class="cmd-block-header">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+            Docker
+          </div>
+          <div class="cmd-list">
+            <div class="cmd-item">
+              <code>docker build -t mon-kiosque .</code>
+              <span class="cmd-desc">Construit l'image Docker depuis le Dockerfile</span>
+            </div>
+            <div class="cmd-item">
+              <code>docker run -d --restart always -p 80:80 mon-kiosque</code>
+              <span class="cmd-desc">Lance le conteneur en arrière-plan, redémarre automatiquement</span>
+            </div>
+            <div class="cmd-item">
+              <code>docker ps</code>
+              <span class="cmd-desc">Liste les conteneurs en cours d'exécution</span>
+            </div>
+            <div class="cmd-item">
+              <code>docker logs mon-kiosque</code>
+              <span class="cmd-desc">Affiche les logs du conteneur</span>
+            </div>
+            <div class="cmd-item">
+              <code>docker pull ghcr.io/noahsantosdacruz-source/kiosque:latest</code>
+              <span class="cmd-desc">Télécharge la dernière image depuis GitHub Container Registry</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- BLOC 4 -->
+        <div class="cmd-block">
+          <div class="cmd-block-header">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Sécurité & robustesse
+          </div>
+          <div class="cmd-list">
+            <div class="cmd-item">
+              <code>sudo raspi-config</code>
+              <span class="cmd-desc">Ouvre l'utilitaire de configuration du Pi (activer Overlay FS, SSH…)</span>
+            </div>
+            <div class="cmd-item">
+              <code>sudo systemctl enable watchdog</code>
+              <span class="cmd-desc">Active le watchdog — redémarre le Pi automatiquement en cas de freeze</span>
+            </div>
+            <div class="cmd-item">
+              <code>sudo chmod 700 ~/.ssh</code>
+              <span class="cmd-desc">Sécurise le dossier de clés SSH</span>
+            </div>
+            <div class="cmd-item">
+              <code>sudo passwd pi</code>
+              <span class="cmd-desc">Change le mot de passe de l'utilisateur pi (obligatoire en prod)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- BLOC 5 -->
+        <div class="cmd-block">
+          <div class="cmd-block-header">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93A10 10 0 1 0 4.93 19.07"/><path d="M12 2v4M12 18v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83"/></svg>
+            SSH & accès à distance
+          </div>
+          <div class="cmd-list">
+            <div class="cmd-item">
+              <code>ssh pi@192.168.x.x</code>
+              <span class="cmd-desc">Se connecte au Raspberry Pi via SSH (remplace l'IP)</span>
+            </div>
+            <div class="cmd-item">
+              <code>ssh-keygen -t ed25519</code>
+              <span class="cmd-desc">Génère une paire de clés SSH sécurisée</span>
+            </div>
+            <div class="cmd-item">
+              <code>ssh-copy-id pi@192.168.x.x</code>
+              <span class="cmd-desc">Copie ta clé publique sur le Pi pour se connecter sans mot de passe</span>
+            </div>
+            <div class="cmd-item">
+              <code>scp fichier.html pi@192.168.x.x:/home/pi/</code>
+              <span class="cmd-desc">Transfère un fichier depuis ton PC vers le Pi</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- BLOC 6 -->
+        <div class="cmd-block">
+          <div class="cmd-block-header">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            Surveillance système
+          </div>
+          <div class="cmd-list">
+            <div class="cmd-item">
+              <code>htop</code>
+              <span class="cmd-desc">Affiche l'utilisation CPU / RAM en temps réel</span>
+            </div>
+            <div class="cmd-item">
+              <code>vcgencmd measure_temp</code>
+              <span class="cmd-desc">Affiche la température du processeur du Raspberry Pi</span>
+            </div>
+            <div class="cmd-item">
+              <code>df -h</code>
+              <span class="cmd-desc">Affiche l'espace disque disponible</span>
+            </div>
+            <div class="cmd-item">
+              <code>sudo journalctl -f</code>
+              <span class="cmd-desc">Affiche les logs système en temps réel</span>
+            </div>
+            <div class="cmd-item">
+              <code>sudo reboot</code>
+              <span class="cmd-desc">Redémarre proprement le Raspberry Pi</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
   </main>
 
   <footer>
@@ -331,9 +518,7 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+ <script src="script.js"></script>
 
 </body>
 </html>

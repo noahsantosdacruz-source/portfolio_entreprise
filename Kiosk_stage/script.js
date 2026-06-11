@@ -26,3 +26,17 @@
       });
     }, { threshold: 0.3 });
     sections.forEach(s => observer.observe(s));
+    // Copy command on click
+    document.querySelectorAll('.cmd-item code').forEach(el => {
+      el.addEventListener('click', () => {
+        navigator.clipboard.writeText(el.textContent).then(() => {
+          const orig = el.style.borderColor;
+          el.style.borderColor = 'var(--teal)';
+          el.style.background = 'rgba(0,180,166,0.15)';
+          setTimeout(() => {
+            el.style.borderColor = orig;
+            el.style.background = '';
+          }, 800);
+        });
+      });
+    });
