@@ -26,7 +26,13 @@
       {id:25, title:"Formations_biblio", tags:["TP_php","mission"], short:"formations", image:"PHOTO/f4a3a950e1cd8ab6ece9a60ba624a5c8.gif", details:"Détails du projet 25.", src:"https://formations.infinityfreeapp.com/"},
       {id:26, title:"CLI", tags:["CLI","projet"], short:"Projet_CLI 1.0.0", image:"PHOTO/f4a3a950e1cd8ab6ece9a60ba624a5c8.gif", details:"Détails du projet 26. Premier CLI que j'ai créé.", src:"https://github.com/noahsantosdacruz-source/CLI"},
       {id:27, title:"JMerise", tags:["JMerisse"], short:"Mon premier portfolio", image:"PHOTO/=voile.jpg", details:"Détails du projet 27. Mon tout premier portfolio réalisé en HTML/CSS/JS.", src:"JMerise/JMerisse.html"},
-      {id:28, title:"JMerise", tags:["JMerisse"], short:"Mon premier portfolio", image:"PHOTO/=voile.jpg", details:"Détails du projet 28. Mon tout premier portfolio réalisé en HTML/CSS/JS.", src:"JMerisseMission/jmerise.html"},
+      {id:28, title:"JMerise", tags:["JMerisse"], short:"JMerise", image:"PHOTO/=voile.jpg", details:"Détails du projet 28. Mon tout premier portfolio réalisé en HTML/CSS/JS.", src:"JMerisseMission/jmerise.html"},
+      {id:29, title:"Convention_BTS_SIO", tags:["Stage, SIO_option_SISR"], short:"Convention_BTS_SIO", image:"PHOTO/ingetis.png", details:"Voici les document pour ma convention de stage", src:"Convention_stage/5 - BTS SIO - 2025 - Annexe 5 - Modele attestation de stage 2026 INIT(1).docx"},
+      {id:30, title:"Convention", tags:["Stage, SIO_option_SISR"], short:"Document de convention", image:"PHOTO/ingetis.png", details:"Voici les document pour ma convention de stage", src:"Convention_stage/Convention Stage SIO(1).docx"},
+      {id:31, title:"Kiosk", tags:["Kiosk"], short:"Rapport de stage", image:"PHOTO/github.png", details:"Voici les document pour ma convention de stage", src:"Kiosk_stage/Kiosk_stage_fonctionnement.html"},
+      {id:32, title:"Kiosk", tags:["Kiosk_Powerpoint"], short:"Powerpoint", image:"PHOTO/github.png", details:"Voici les document pour ma convention de stage", src:"Kiosk_stage/STAGE_OKEN_CONSULTING_final-6.pdf"},
+      {id:33, title:"CV", tags:["CV"], short:"Profile", image:"Dossier_CV/Capture d'écran 2026-06-11 093532.png", details:"Voici mon CV", src:"Dossier_CV/Noah_Santosdacruz_CV_2.pdf"},
+
       
     ];
 
