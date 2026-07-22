@@ -29,6 +29,7 @@ Dossiers par TP, mission ou projet :
 | `cisco.lamoula/` | Travaux pratiques Cisco Packet Tracer (routage RIP) |
 | `Projet 2 PHP/` | Application PHP/MySQL de gestion de bibliothèque |
 | `Projet_react/` | Composant météo en React |
+| `YARDSEARCH/` | Plateforme de mise en relation clients ↔ artisans du bâtiment (React + Vite) — recherche de pros, devis, messagerie, suivi de chantiers |
 | `Carrousel/` | Carrousel interactif de notions mathématiques |
 | `CLI_entreprise/` | Outil en ligne de commande |
 | `JMerise/`, `JMerisseMission/` | Premiers portfolios et exercices HTML/CSS/JS |
