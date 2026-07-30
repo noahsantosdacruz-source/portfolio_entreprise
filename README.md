@@ -45,6 +45,8 @@ Dans `Kiosk_stage/`, déploiement d'un client d'affichage dynamique Xibo sur Ras
 - Connexion au CMS Xibo à travers un tunnel OpenVPN
 - Documentation détaillée du déploiement et du dépannage dans `xibo_kiosk.html`
 
+Aide au projet ""
+
 ## Stack
 
 HTML5, CSS3, JavaScript (vanilla), [Bootstrap 5](https://getbootstrap.com/) pour la mise en page — sans framework ni étape de build.
