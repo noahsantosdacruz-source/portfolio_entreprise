@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MonGroupage — Sourcing Chine, livraison Afrique</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#EBE4D6;
+    --paper-2:#E1D8C4;
+    --ink:#1C2130;
+    --ink-soft:#4A4F5E;
+    --seal-red:#A32F1E;
+    --seal-red-dark:#7C2416;
+    --brass:#C08F2E;
+    --lane-blue:#2C4568;
+    --line:#C9BEA6;
+    --white:#FBF9F4;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  .mono{font-family:'IBM Plex Mono', monospace; letter-spacing:0.02em;}
+  h1,h2,h3{font-family:'Bricolage Grotesque', sans-serif;}
+
+  /* texture */
+  body::before{
+    content:"";
+    position:fixed; inset:0;
+    background-image:
+      radial-gradient(var(--line) 1px, transparent 1px);
+    background-size:26px 26px;
+    opacity:0.35;
+    pointer-events:none;
+    z-index:0;
+  }
+
+  .wrap{max-width:1180px; margin:0 auto; padding:0 32px; position:relative; z-index:1;}
+
+  /* NAV */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(235,228,214,0.88);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  nav{display:flex; align-items:center; justify-content:space-between; padding:18px 32px; max-width:1180px; margin:0 auto;}
+  .logo{display:flex; align-items:center; gap:10px; font-size:20px; font-weight:700;}
+  .logo-mark{
+    width:34px; height:34px; border-radius:9px;
+    background:var(--ink);
+    display:flex; align-items:center; justify-content:center;
+    color:var(--white); font-family:'IBM Plex Mono'; font-weight:700; font-size:15px;
+  }
+  .logo span{color:var(--seal-red);}
+  .navlinks{display:flex; gap:34px; font-size:14.5px; color:var(--ink-soft);}
+  .navlinks a{text-decoration:none; color:inherit;}
+  .navlinks a:hover{color:var(--ink);}
+  @media (max-width:840px){ .navlinks{display:none;} }
+
+  /* HERO */
+  .hero{
+    padding:88px 0 60px;
+    display:grid; grid-template-columns:1.05fr 0.95fr; gap:50px; align-items:center;
+  }
+  @media (max-width:960px){ .hero{grid-template-columns:1fr; padding-top:56px;} }
+
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:'IBM Plex Mono'; font-size:12.5px; letter-spacing:0.08em;
+    color:var(--seal-red-dark); text-transform:uppercase;
+    border:1px solid var(--seal-red-dark); border-radius:100px;
+    padding:6px 14px; margin-bottom:26px;
+  }
+  .eyebrow::before{content:""; width:6px; height:6px; border-radius:50%; background:var(--seal-red); display:inline-block;}
+
+  .hero h1{
+    font-size:clamp(38px, 5.2vw, 68px);
+    line-height:1.03;
+    font-weight:800;
+    letter-spacing:-0.02em;
+  }
+  .hero h1 .accent{color:var(--seal-red);}
+  .hero p.lede{
+    margin-top:22px; font-size:17.5px; line-height:1.6; color:var(--ink-soft);
+    max-width:480px;
+  }
+  .cta-row{display:flex; gap:14px; margin-top:34px; flex-wrap:wrap;}
+  .btn{
+    font-family:'Inter'; font-weight:600; font-size:15px;
+    padding:14px 26px; border-radius:10px; text-decoration:none;
+    display:inline-flex; align-items:center; gap:8px;
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .btn-primary{background:var(--ink); color:var(--white);}
+  .btn-primary:hover{transform:translateY(-2px); box-shadow:0 8px 22px rgba(28,33,48,0.25);}
+  .btn-ghost{border:1.5px solid var(--ink); color:var(--ink); background:transparent;}
+  .btn-ghost:hover{background:var(--ink); color:var(--white);}
+
+  .trustline{
+    margin-top:38px; display:flex; align-items:center; gap:12px;
+    font-size:13.5px; color:var(--ink-soft);
+  }
+  .avatars{display:flex;}
+  .avatars div{
+    width:30px; height:30px; border-radius:50%; border:2px solid var(--paper);
+    margin-left:-8px; background:var(--lane-blue);
+  }
+  .avatars div:first-child{margin-left:0;}
+  .avatars div:nth-child(2){background:var(--brass);}
+  .avatars div:nth-child(3){background:var(--seal-red);}
+
+  /* MANIFEST / ROUTE SIGNATURE VISUAL */
+  .manifest{
+    background:var(--white);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:26px 26px 22px;
+    box-shadow:0 20px 50px rgba(28,33,48,0.10);
+    position:relative;
+  }
+  .manifest-top{
+    display:flex; justify-content:space-between; align-items:flex-start;
+    padding-bottom:16px; border-bottom:1px dashed var(--line);
+    font-family:'IBM Plex Mono'; font-size:11.5px; color:var(--ink-soft);
+  }
+  .manifest-top .id{color:var(--ink); font-weight:500;}
+  .route-svg{width:100%; height:190px; display:block; margin:20px 0 6px;}
+  .route-cities{display:flex; justify-content:space-between; font-size:13px; margin-top:2px;}
+  .route-cities .city b{display:block; font-family:'Bricolage Grotesque'; font-size:15.5px; color:var(--ink);}
+  .route-cities .city span{color:var(--ink-soft); font-size:11.5px;}
+  .route-cities .city.end{text-align:right;}
+
+  .stamp{
+    position:absolute; top:-14px; right:-14px;
+    width:88px; height:88px; border-radius:50%;
+    border:2.5px solid var(--seal-red);
+    color:var(--seal-red);
+    display:flex; align-items:center; justify-content:center;
+    text-align:center; font-family:'IBM Plex Mono'; font-size:10.5px; font-weight:600;
+    transform:rotate(-14deg);
+    background:rgba(163,47,30,0.04);
+    line-height:1.25;
+  }
+
+  .dash-dot{
+    animation: dashmove 3.4s linear infinite;
+  }
+  @keyframes dashmove{
+    to{ stroke-dashoffset:-40; }
+  }
+  @media (prefers-reduced-motion: reduce){ .dash-dot{animation:none;} }
+
+  /* SECTION LABELS */
+  .sec{padding:74px 0;}
+  .sec-label{
+    font-family:'IBM Plex Mono'; font-size:12.5px; letter-spacing:0.09em;
+    text-transform:uppercase; color:var(--seal-red-dark); margin-bottom:14px;
+  }
+  .sec h2{font-size:clamp(28px,3.4vw,40px); font-weight:800; letter-spacing:-0.01em; max-width:640px;}
+  .sec p.sub{color:var(--ink-soft); font-size:16px; max-width:560px; margin-top:14px; line-height:1.6;}
+
+  /* STATS STRIP */
+  .stats{
+    border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+    padding:34px 0;
+    display:grid; grid-template-columns:repeat(4,1fr); gap:20px;
+  }
+  @media (max-width:760px){ .stats{grid-template-columns:repeat(2,1fr);} }
+  .stat b{display:block; font-family:'Bricolage Grotesque'; font-size:30px; font-weight:800;}
+  .stat span{font-size:13px; color:var(--ink-soft);}
+
+  /* PROCESS STEPS */
+  .steps{margin-top:44px; display:grid; grid-template-columns:repeat(4,1fr); gap:18px;}
+  @media (max-width:900px){ .steps{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:560px){ .steps{grid-template-columns:1fr;} }
+  .step{
+    background:var(--white); border:1px solid var(--line); border-radius:14px;
+    padding:24px 20px; position:relative;
+  }
+  .step .num{
+    font-family:'IBM Plex Mono'; font-size:12px; color:var(--seal-red-dark);
+    border:1px solid var(--seal-red-dark); border-radius:100px;
+    width:26px; height:26px; display:flex; align-items:center; justify-content:center;
+    margin-bottom:16px;
+  }
+  .step h3{font-size:17px; margin-bottom:8px;}
+  .step p{font-size:14px; color:var(--ink-soft); line-height:1.55;}
+  .step-connector{
+    position:absolute; top:37px; right:-18px; width:18px; height:1px;
+    background:repeating-linear-gradient(90deg, var(--line) 0 5px, transparent 5px 9px);
+  }
+  @media (max-width:900px){ .step-connector{display:none;} }
+
+  /* CATALOGUE CARDS */
+  .cat-grid{margin-top:40px; display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
+  @media (max-width:900px){ .cat-grid{grid-template-columns:1fr 1fr;} }
+  @media (max-width:600px){ .cat-grid{grid-template-columns:1fr;} }
+  .cat-card{
+    background:var(--white); border:1px solid var(--line); border-radius:14px;
+    overflow:hidden;
+  }
+  .cat-img{
+    height:130px;
+    background:
+      linear-gradient(135deg, rgba(44,69,104,0.10), rgba(163,47,30,0.08)),
+      repeating-linear-gradient(45deg, rgba(28,33,48,0.05) 0 10px, transparent 10px 20px);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .cat-img svg{width:44px; height:44px; opacity:0.5;}
+  .cat-body{padding:18px 18px 20px;}
+  .cat-body .name{font-weight:600; font-size:15px; margin-bottom:4px;}
+  .cat-body .supplier{font-size:12.5px; color:var(--ink-soft); margin-bottom:12px;}
+  .cat-price{display:flex; align-items:baseline; gap:8px;}
+  .cat-price b{font-family:'Bricolage Grotesque'; font-size:19px;}
+  .cat-price span{font-size:12px; color:var(--ink-soft);}
+  .cat-fcfa{font-family:'IBM Plex Mono'; font-size:12px; color:var(--brass); margin-top:4px;}
+  .stock{display:flex; align-items:center; gap:6px; font-size:12px; color:#3E7D4F; margin-top:10px;}
+  .stock::before{content:""; width:6px; height:6px; border-radius:50%; background:#3E7D4F;}
+
+  /* COMPLIANCE / DECLARATION */
+  .declaration{
+    background:var(--white); border:1px solid var(--line); border-radius:16px;
+    padding:38px; margin-top:40px;
+    display:grid; grid-template-columns:1fr 1fr; gap:30px;
+  }
+  @media (max-width:760px){ .declaration{grid-template-columns:1fr;} }
+  .declaration h3{font-size:19px; margin-bottom:10px;}
+  .declaration p{color:var(--ink-soft); font-size:14.5px; line-height:1.6;}
+  .forbidden-list{margin-top:16px; display:flex; flex-direction:column; gap:10px;}
+  .forbidden-item{
+    display:flex; align-items:center; gap:10px; font-size:14px;
+    padding:10px 14px; border:1px solid var(--line); border-radius:9px; background:var(--paper);
+  }
+  .forbidden-item::before{content:"✕"; color:var(--seal-red); font-weight:700; font-size:12px;}
+
+  /* AGENCIES */
+  .agencies{margin-top:40px; display:grid; grid-template-columns:1fr 1fr; gap:20px;}
+  @media (max-width:760px){ .agencies{grid-template-columns:1fr;} }
+  .agency-card{
+    border:1px solid var(--line); border-radius:14px; padding:22px 24px; background:var(--white);
+    display:flex; gap:16px; align-items:flex-start;
+  }
+  .agency-card.active{border-color:var(--lane-blue); background:rgba(44,69,104,0.04);}
+  .pin{
+    width:38px; height:38px; border-radius:10px; flex-shrink:0;
+    background:var(--lane-blue); color:var(--white);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .agency-card h4{font-size:16px; margin-bottom:3px;}
+  .agency-card .city{font-size:13px; color:var(--ink-soft); margin-bottom:6px;}
+  .agency-card .addr{font-size:12.5px; color:var(--ink-soft);}
+
+  /* FINAL CTA */
+  .final-cta{
+    background:var(--ink); color:var(--white);
+    border-radius:22px; padding:56px 48px; margin:20px 0 90px;
+    display:flex; justify-content:space-between; align-items:center; gap:30px; flex-wrap:wrap;
+  }
+  .final-cta h2{color:var(--white); font-size:clamp(24px,3vw,32px); max-width:440px;}
+  .final-cta p{color:#B9BEC9; margin-top:10px; font-size:14.5px; max-width:420px;}
+  .final-cta .btn-primary{background:var(--seal-red);}
+  .final-cta .btn-primary:hover{background:var(--seal-red-dark);}
+
+  footer{
+    border-top:1px solid var(--line); padding:30px 0 50px;
+    font-size:13px; color:var(--ink-soft); display:flex; justify-content:space-between;
+    flex-wrap:wrap; gap:10px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="logo">
+      <div class="logo-mark">M</div>
+      Mon<span>Groupage</span>
+    </div>
+    <div class="navlinks">
+      <a href="#comment">Comment ça marche</a>
+      <a href="#catalogue">Catalogue</a>
+      <a href="#conformite">Conformité</a>
+      <a href="#agences">Agences</a>
+    </div>
+    <a href="#reserver" class="btn btn-primary" style="padding:10px 20px; font-size:14px;">Réserver un espace</a>
+  </nav>
+</header>
+
+<div class="wrap">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div>
+      <div class="eyebrow">Nouvelles lignes directes Chine – Afrique</div>
+      <h1>Sourcing global.<br>Livraison locale.<br><span class="accent">Groupage</span> sans friction.</h1>
+      <p class="lede">Un dossier d'importation par produit, une destination, une agence de retrait. Nous préparons un devis sans engagement en 24 à 48h — vous ne payez rien avant de valider.</p>
+      <div class="cta-row">
+        <a href="#reserver" class="btn btn-primary">Réserver un espace →</a>
+        <a href="#catalogue" class="btn btn-ghost">Parcourir le catalogue</a>
+      </div>
+      <div class="trustline">
+        <div class="avatars"><div></div><div></div><div></div></div>
+        Rejoint par <strong style="color:var(--ink)">2 400+</strong> entreprises internationales
+      </div>
+    </div>
+
+    <div class="manifest">
+      <div class="stamp">GROUPAGE<br>SANS<br>ENGAGEMENT</div>
+      <div class="manifest-top">
+        <div>DOSSIER <span class="id">#LC-2 R É F.</span></div>
+        <div>SERVICE<br><span class="id">Groupage LCL</span></div>
+      </div>
+      <svg class="route-svg" viewBox="0 0 400 190">
+        <line x1="30" y1="150" x2="370" y2="150" stroke="#C9BEA6" stroke-width="1"/>
+        <circle cx="30" cy="150" r="4.5" fill="#2C4568"/>
+        <circle cx="370" cy="150" r="4.5" fill="#A32F1E"/>
+        <path d="M30,150 Q200,20 370,150" fill="none" stroke="#2C4568" stroke-width="1.6" stroke-dasharray="1 7" stroke-linecap="round"/>
+        <path class="dash-dot" d="M30,150 Q200,20 370,150" fill="none" stroke="#C08F2E" stroke-width="2.6" stroke-dasharray="6 34" stroke-linecap="round"/>
+        <g transform="translate(190,44)">
+          <rect x="-11" y="-8" width="22" height="16" rx="2" fill="#1C2130"/>
+          <rect x="-11" y="-8" width="22" height="5" rx="1" fill="#C08F2E"/>
+        </g>
+      </svg>
+      <div class="route-cities">
+        <div class="city"><b>Guangzhou</b><span>Hub fournisseur</span></div>
+        <div class="city end"><b>Libreville</b><span>Port d'Owendo</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats">
+    <div class="stat"><b>2 400+</b><span>Entreprises actives</span></div>
+    <div class="stat"><b>24–48h</b><span>Délai de devis</span></div>
+    <div class="stat"><b>0 FCFA</b><span>Paiement requis à l'envoi</span></div>
+    <div class="stat"><b>15+</b><span>Produits catalogue référencés</span></div>
+  </div>
+
+  <!-- COMMENT ÇA MARCHE -->
+  <section class="sec" id="comment">
+    <div class="sec-label">Comment ça marche</div>
+    <h2>Un dossier d'importation en quatre étapes, du produit à l'agence.</h2>
+    <p class="sub">Chaque dossier suit le même parcours, du choix des articles jusqu'à la remise en main propre dans votre agence de retrait.</p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="num">1</div>
+        <div class="step-connector"></div>
+        <h3>Produits à importer</h3>
+        <p>Ajoutez des articles depuis le catalogue ou saisissez-les manuellement, en ajustant librement les quantités.</p>
+      </div>
+      <div class="step">
+        <div class="num">2</div>
+        <div class="step-connector"></div>
+        <h3>Destination</h3>
+        <p>Choisissez le pays et la ville ou le port d'arrivée de votre marchandise, comme Libreville — Port d'Owendo.</p>
+      </div>
+      <div class="step">
+        <div class="num">3</div>
+        <div class="step-connector"></div>
+        <h3>Agence de retrait</h3>
+        <p>Sélectionnez l'agence où vous récupérerez votre marchandise à son arrivée, au plus près de vous.</p>
+      </div>
+      <div class="step">
+        <div class="num">4</div>
+        <h3>Notes & envoi</h3>
+        <p>Ajoutez une précision optionnelle pour l'équipe, puis envoyez la demande. Aucun paiement n'est requis.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATALOGUE -->
+  <section class="sec" id="catalogue">
+    <div class="sec-label">Marketplace</div>
+    <h2>Le catalogue produits</h2>
+    <p class="sub">Découvrez ce que nous pouvons sourcer pour vous en Chine. Les prix affichés sont les prix fournisseur — hors transport, assurance et douane.</p>
+
+    <div class="cat-grid">
+      <div class="cat-card">
+        <div class="cat-img"><svg viewBox="0 0 24 24" fill="none" stroke="#1C2130" stroke-width="1.5"><path d="M2 3h6l2 14h9M6 12h13l2-6H7"/></svg></div>
+        <div class="cat-body">
+          <div class="name">Robinet</div>
+          <div class="supplier">WINWAY · Chine</div>
+          <div class="cat-price"><b>¥ 280,5</b><span>/ pièce</span></div>
+          <div class="cat-fcfa">≈ 23 020 FCFA indicatif</div>
+          <div class="stock">En stock</div>
+        </div>
+      </div>
+      <div class="cat-card">
+        <div class="cat-img"><svg viewBox="0 0 24 24" fill="none" stroke="#1C2130" stroke-width="1.5"><path d="M14 6l4 4-9 9-4 1 1-4z"/></svg></div>
+        <div class="cat-body">
+          <div class="name">Tarières thermiques 52cc</div>
+          <div class="supplier">Yongkang Yuecan Electrical Appliance Co., Ltd</div>
+          <div class="cat-price"><b>¥ 380,24</b><span>/ pièce</span></div>
+          <div class="cat-fcfa">≈ 31 090 FCFA indicatif</div>
+          <div class="stock">En stock</div>
+        </div>
+      </div>
+      <div class="cat-card">
+        <div class="cat-img"><svg viewBox="0 0 24 24" fill="none" stroke="#1C2130" stroke-width="1.5"><path d="M3 12h4l2-7 4 14 2-7h6"/></svg></div>
+        <div class="cat-body">
+          <div class="name">Débroussailleuse thermique sur roues</div>
+          <div class="supplier">Yongkang Yuecan Electrical Appliance Co., Ltd</div>
+          <div class="cat-price"><b>¥ 372,16</b><span>/ unité</span></div>
+          <div class="cat-fcfa">≈ 30 517 FCFA indicatif</div>
+          <div class="stock">En stock</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONFORMITÉ -->
+  <section class="sec" id="conformite">
+    <div class="sec-label">Conformité douanière</div>
+    <h2>Ce que nous n'acceptons pas</h2>
+    <div class="declaration">
+      <div>
+        <h3>Pourquoi ces restrictions</h3>
+        <p>Chaque dossier de groupage est déclaré à la douane du pays de destination. Certaines catégories de marchandises sont refusées à l'import pour protéger votre expédition et respecter la réglementation locale et internationale.</p>
+        <p style="margin-top:14px;">Notre équipe vérifie chaque dossier avant préparation du devis, pour éviter tout blocage à l'arrivée.</p>
+      </div>
+      <div class="forbidden-list">
+        <div class="forbidden-item">Armes &amp; munitions</div>
+        <div class="forbidden-item">Produits inflammables</div>
+        <div class="forbidden-item">Contrefaçons</div>
+        <div class="forbidden-item">Médicaments non homologués</div>
+        <div class="forbidden-item">Stupéfiants</div>
+        <div class="forbidden-item">Espèces protégées</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AGENCES -->
+  <section class="sec" id="agences">
+    <div class="sec-label">Destination</div>
+    <h2>Vos agences de retrait à Libreville, Gabon</h2>
+    <p class="sub">Le pays et le port d'arrivée de votre marchandise déterminent l'agence où vous viendrez la récupérer.</p>
+
+    <div class="agencies">
+      <div class="agency-card active">
+        <div class="pin">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 21s-7-6.5-7-11a7 7 0 0114 0c0 4.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+        </div>
+        <div>
+          <h4>Agence Libreville Centre</h4>
+          <div class="city">Libreville</div>
+          <div class="addr">Boulevard Triomphal Omar Bongo</div>
+        </div>
+      </div>
+      <div class="agency-card">
+        <div class="pin" style="background:var(--ink-soft);">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 21s-7-6.5-7-11a7 7 0 0114 0c0 4.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+        </div>
+        <div>
+          <h4>Agence Libreville Owendo</h4>
+          <div class="city">Libreville</div>
+          <div class="addr">Zone Portuaire d'Owendo</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="final-cta" id="reserver">
+    <div>
+      <h2>Prêt à monter votre premier dossier d'importation ?</h2>
+      <p>Notre équipe vous accompagne sur WhatsApp pour construire votre dossier, du catalogue jusqu'à l'agence de retrait.</p>
+    </div>
+    <a href="#" class="btn btn-primary">Envoyer ma demande →</a>
+  </div>
+
+  <footer>
+    <div>© 2026 MonGroupage — Sourcing Chine, groupage Afrique.</div>
+    <div>Environnement de démonstration</div>
+  </footer>
+
+</div>
+</body>
+</html>
