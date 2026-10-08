@@ -1,5 +1,6 @@
 # Portfolio — Noah Santos da Cruz
 
+Actuellement en recherche de stage à partir de début novembre et d'alternance. Je vous présente mon portfolio.
 Portfolio de formation en BTS SIO (option SISR), regroupant mes TP, missions, certifications et projets réalisés en cours d'année et durant mon alternance. Site statique en HTML/CSS/JS, sans build ni dépendances.
 
 **Voir en ligne :** activer GitHub Pages sur la branche `main` (Settings → Pages) pour publier `index.html` à la racine.
