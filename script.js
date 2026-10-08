@@ -31,9 +31,11 @@
       {id:30, title:"Convention", tags:["Stage, SIO_option_SISR"], short:"Document de convention", image:"PHOTO/ingetis.png", details:"Voici les document pour ma convention de stage", src:"Convention_stage/Convention Stage SIO(1).docx"},
       {id:31, title:"Kiosk", tags:["Kiosk"], short:"Rapport de stage", image:"PHOTO/github.png", details:"Voici les document pour ma convention de stage", src:"Kiosk_stage/Kiosk_stage_fonctionnement.html"},
       {id:32, title:"Kiosk", tags:["Kiosk_Powerpoint"], short:"Powerpoint", image:"PHOTO/github.png", details:"Voici les document pour ma convention de stage", src:"Kiosk_stage/STAGE_OKEN_CONSULTING_final-6.pdf"},
-      {id:33, title:"CV", tags:["CV"], short:"Profile", image:"Dossier_CV/Capture d'écran 2026-06-11 093532.png", details:"Voici mon CV", src:"Dossier_CV/Noah_Santosdacruz_CV_Alternance_v3.pdf"},
-      {id:34, title:"KIOSK", tags:["KIOSK"], short:"Listage des tâches", image:"PHOTO/github.png", details:"Voici mes passions", src:"Kiosk_stage/STAGE KIOSQUE.md"},
-      {id:35, title:"KIOSK", tags:["KIOSK"], short:"xibo", image:"PHOTO/f1f4ad0f-8645-4375-a153-1a9d7e1c8259.avif", details:"Voici mes passions", src:"Kiosk_stage/xibo_kiosk.html"},
+      {id:33, title:"CV", tags:["CV"], short:"Profile", image:"Dossier_CV/Capture d'écran 2026-10-08 120341.png", details:"Voici mon CV", src:"Dossier_CV/Noah_Santosdacruz_CV_Alternance-5.pdf"},
+      {id:34, title:"CV_NOVEMBRE", tags:["CV"], short:"Profile", image:"Dossier_CV/Capture d'écran 2026-10-08 120239.png", details:"Voici mes passions", src:"Dossier_CV/Noah_Santosdacruz_CV_Stage_Novembre.pdf"},
+      {id:35, title:"KIOSK", tags:["KIOSK"], short:"Listage des tâches", image:"PHOTO/github.png", details:"Voici mes passions", src:"Kiosk_stage/STAGE KIOSQUE.md"},
+      {id:36, title:"KIOSK", tags:["KIOSK"], short:"xibo", image:"PHOTO/f1f4ad0f-8645-4375-a153-1a9d7e1c8259.avif", details:"Voici mes passions", src:"Kiosk_stage/xibo_kiosk.html"},
+      {id:37, title:"Yardsearch", tags:["Projets"], short:"en cours...", image:"YARDsearch_files/YARDSEARCH_logo.png", details:"En cours de développement", src:"YARDsearch_files/yardsearch.html"},
       
     ];
 

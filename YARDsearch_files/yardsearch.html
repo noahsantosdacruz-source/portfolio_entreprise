@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YARDsearch — Documentation du projet</title>
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+</head>
+<body>
+ 
+<div class="strip"></div>
+<nav>
+  <div class="nav-brand"><img src="logo-icon.png" alt="YARDsearch"></div>
+  <div class="nav-links">
+    <a href="#stack">Stack</a>
+    <a href="#structure">Structure</a>
+    <a href="#modules">Modules</a>
+    <a href="#roadmap">Feuille de route</a>
+  </div>
+</nav>
+ 
+<div class="hero">
+  <img class="hero-logo" src="logo-icon.png" alt="YARDsearch">
+  <div class="hero-inner">
+    <div class="eyebrow">Documentation technique</div>
+    <h1>Le chantier, mis en relation.</h1>
+    <p class="lede">YARDsearch connecte clients et artisans du bâtiment : recherche de professionnels, matching automatique, devis, messagerie et suivi de chantiers, dans une seule interface.</p>
+    <div class="hero-meta">
+      <div><div class="num">React 18</div><div class="lbl">+ Vite</div></div>
+      <div><div class="num">5</div><div class="lbl">pages principales</div></div>
+      <div><div class="num">0 €</div><div class="lbl">frais de mise en relation</div></div>
+    </div>
+  </div>
+</div>
+ 
+ 
+    <div class="hero-meta">
+      <div><div class="num">React 18</div><div class="lbl">+ Vite</div></div>
+      <div><div class="num">5</div><div class="lbl">pages principales</div></div>
+      <div><div class="num">0 €</div><div class="lbl">frais de mise en relation</div></div>
+    </div>
+  </div>
+</div>
+ 
+ 
+ 
+<section id="stack" class="tight">
+  <div class="section-head">
+    <div class="kicker">Stack technique</div>
+    <h2>Ce qui fait tourner YARDsearch</h2>
+    <p>Un frontend React léger, pensé pour se brancher progressivement sur une API Laravel.</p>
+  </div>
+  <div class="grid cols-4">
+    <div class="card">
+      <span class="tag">Frontend</span>
+      <h3>React 18 + Vite</h3>
+      <p>SPA sans routeur externe, state local pour la navigation.</p>
+      <div class="cost">Gratuit</div>
+    </div>
+    <div class="card">
+      <span class="tag">Backend</span>
+      <h3>Laravel + Sanctum</h3>
+      <p>Authentification par token, API REST/GraphQL.</p>
+      <div class="cost">Gratuit</div>
+    </div>
+    <div class="card">
+      <span class="tag">Données</span>
+      <h3>PostgreSQL / Supabase</h3>
+      <p>Base hébergée à Frankfurt, 500 Mo inclus.</p>
+      <div class="cost">Gratuit</div>
+    </div>
+    <div class="card">
+      <span class="tag">Déploiement</span>
+      <h3>Vercel + Railway</h3>
+      <p>Frontend sur Vercel, backend sur Railway.</p>
+      <div class="cost">~5 €/mois</div>
+    </div>
+  </div>
+</section>
+ 
+<section id="structure">
+  <div class="section-head">
+    <div class="kicker">Arborescence</div>
+    <h2>Organisation du dépôt</h2>
+    <p>Une structure plate, un fichier = une responsabilité.</p>
+  </div>
+  <div class="tree-block">
+<span class="hl">yardsearch/</span><br>
+├── index.html<br>
+├── vite.config.js<br>
+├── package.json<br>
+└── <span class="hl">src/</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;├── App.jsx <span class="muted-line">// routeur principal</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;├── main.jsx <span class="muted-line">// point d'entrée</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;├── <span class="hl">styles/</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└── global.css<br>
+&nbsp;&nbsp;&nbsp;&nbsp;├── <span class="hl">data/</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└── mockData.js <span class="muted-line">// à remplacer par l'API</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;├── <span class="hl">components/</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├── Topbar.jsx<br>
+&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;├── Sidebar.jsx<br>
+&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└── ProCard.jsx<br>
+&nbsp;&nbsp;&nbsp;&nbsp;└── <span class="hl">pages/</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── Accueil.jsx<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── Professionnels.jsx<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── BonsPlans.jsx<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── Devis.jsx<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── Messagerie.jsx
+  </div>
+</section>
+ 
+<section id="modules">
+  <div class="section-head">
+    <div class="kicker">Détail</div>
+    <h2>Composants &amp; pages</h2>
+    <p>Le rôle de chaque brique, en une ligne. Le détail complet vit dans <code>/docs</code>.</p>
+  </div>
+  <div class="modules">
+    <div class="module-row"><div class="file">App.jsx</div><div class="desc">State <code>page</code> qui détermine l'affichage — remplace react-router pour l'instant.</div><div class="kind">Racine</div></div>
+    <div class="module-row"><div class="file">Topbar.jsx</div><div class="desc">Navigation haute sticky : Accueil, Professionnels, Matching, Bons plans, Historique, Projet, Post.</div><div class="kind">Composant</div></div>
+    <div class="module-row"><div class="file">Sidebar.jsx</div><div class="desc">Menu latéral en 3 sections : Navigation, Communauté, Compte.</div><div class="kind">Composant</div></div>
+    <div class="module-row"><div class="file">ProCard.jsx</div><div class="desc">Carte artisan réutilisable : disponibilité, avis, tags, tarif, bouton Contacter.</div><div class="kind">Composant</div></div>
+    <div class="module-row"><div class="file">Accueil.jsx</div><div class="desc">Dashboard : hero de recherche, stats clés, pros en vedette, devis &amp; chantiers.</div><div class="kind">Page</div></div>
+    <div class="module-row"><div class="file">Professionnels.jsx</div><div class="desc">Recherche filtrée par métier, grille de <code>ProCard</code>.</div><div class="kind">Page</div></div>
+    <div class="module-row"><div class="file">BonsPlans.jsx</div><div class="desc">Répertoire de fournisseurs et négoces locaux.</div><div class="kind">Page</div></div>
+    <div class="module-row"><div class="file">Devis.jsx</div><div class="desc">Formulaire de demande de devis avec confirmation temporaire.</div><div class="kind">Page</div></div>
+    <div class="module-row"><div class="file">Messagerie.jsx</div><div class="desc">Chat interne, historique par conversation, envoi en session.</div><div class="kind">Page</div></div>
+  </div>
+</section>
+ 
+<section id="roadmap">
+  <div class="section-head">
+    <div class="kicker">Prochaines étapes</div>
+    <h2>Branchement API</h2>
+    <p>Ordre conseillé pour passer du mock au réel.</p>
+  </div>
+  <div class="roadmap">
+    <div class="rstep"><div class="n">01</div><h3>Authentification</h3><p>OAuth2 / Sanctum, token stocké côté client.</p></div>
+    <div class="rstep"><div class="n">02</div><h3>Listing pros</h3><p><code>GET /api/v1/pros</code> à la place de <code>mockData.pros</code>.</p></div>
+    <div class="rstep"><div class="n">03</div><h3>Création de devis</h3><p><code>POST /api/v1/devis</code> depuis <code>Devis.jsx</code>.</p></div>
+    <div class="rstep"><div class="n">04</div><h3>Messagerie temps réel</h3><p>WebSockets (Laravel Echo) ou MQTT (HiveMQ).</p></div>
+    <div class="rstep"><div class="n">05</div><h3>Géolocalisation</h3><p><code>GET /api/v1/bons-plans?lat&amp;lng</code> pour les bons plans à proximité.</p></div>
+  </div>
+</section>
+ 
+<footer>
+  <strong>YARDsearch</strong> — documentation générée pour le dépôt Git · mise à jour continue au fil du développement.
+</footer>
+ 
+</body>
+</html>
+ 
+

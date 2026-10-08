@@ -1,8 +1,8 @@
 
     :root, h2 {
-        --neon-blue: #00f3ff;
-            --neon-pink: #ff006e;
-            --neon-purple: #8b5cf6;
+        --neon-blue: #c5a204;
+            --neon-pink: #a0121e;
+            --neon-purple: #c8f65c;
             --dark: #0a0e27;
             --darker: #050810;
             --light: white;
@@ -111,7 +111,7 @@
       height: 200%;
       background: radial-gradient(sticky, rgba(255,255,255,0.1) 1px, transparent 1px);
       background-size: 50% 50%;
-      background-image: url("PHOTO/La basic_magenta.png");
+      background-image: url("PHOTO/La basic_orange.png");
       left: -100%;
       top: -100%;
       image-resolution: var(--secondary);
